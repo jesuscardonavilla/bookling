@@ -7748,11 +7748,17 @@ function openRead(){
    '<p class="fine">Bookling explains ideas in its own words. The book has the full argument, the examples and the author\'s voice. Mark chapters as read on the Notes page to unlock deeper review questions.</p>'+
    '<button class="btn ghost" data-act="close">Close</button>');
 }
-function openBooks(){
-  openOverlay('<h2>'+tr('Your library')+'</h2><p>'+tr('Pick a book to learn.')+'</p>'+BOOKS.map(function(b){
+var libTab=null;
+function openBooks(keep){
+  if(!keep||!libTab)libTab=shelfOfBook(B)||'all';
+  var tabs=[['to-read','To read'],['read','Read'],['all','All']];
+  var seg='<div class="seg" style="margin:14px 0 6px">'+tabs.map(function(t){return '<button data-act="libtab" data-t="'+t[0]+'" aria-pressed="'+(libTab===t[0])+'">'+t[1]+'</button>';}).join('')+'</div>';
+  var list=BOOKS.filter(function(b){return libTab==='all'||shelfOfBook(b)===libTab;});
+  openOverlay('<h2>'+tr('Your library')+'</h2><p>'+tr('Pick a book to learn.')+'</p>'+seg+(list.length?list.map(function(b){
     var d=b.lessons.filter(function(L){return S.done[L.id];}).length+(S.boss[b.id]?1:0),t=b.lessons.length+1;
-    return '<button class="bk'+(b.id===B.id?' on':'')+'" data-act="pick" data-id="'+b.id+'">'+(coverOfBook(b)?covEl(coverOfBook(b),b.title):'<div class="mono" aria-hidden="true" style="width:44px;height:44px;font-size:17px">'+b.initials+'</div>')+'<div style="flex:1;min-width:0"><b>'+esc(b.title)+'</b><span>'+esc(tr('{0}, {1} of {2} steps',b.author,d,t))+'</span></div></button>';
-  }).join(''));
+    var sh=shelfOfBook(b),tag=libTab==='all'&&sh?' ('+(sh==='read'?'Read':'To read')+')':'';
+    return '<button class="bk'+(b.id===B.id?' on':'')+'" data-act="pick" data-id="'+b.id+'">'+(coverOfBook(b)?covEl(coverOfBook(b),b.title):'<div class="mono" aria-hidden="true" style="width:44px;height:44px;font-size:17px">'+b.initials+'</div>')+'<div style="flex:1;min-width:0"><b>'+esc(b.title)+'</b><span>'+esc(tr('{0}, {1} of {2} steps',b.author,d,t))+esc(tag)+'</span></div></button>';
+  }).join(''):'<p class="fine">No books here yet.</p>'));
 }
 
 /* ---------- shelf ---------- */
@@ -8086,6 +8092,7 @@ document.addEventListener('click',function(e){
     case 'shcopy':var bt=document.getElementById('bakt');bt.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}openShBak(ok?'Copied.':'Select the text and copy it by hand.');break;
     case 'shrest':try{var arr=JSON.parse(document.getElementById('bakt').value);if(Array.isArray(arr)&&arr.every(function(x){return x&&x.k&&x.t&&(x.s==='read'||x.s==='to-read');})){S.shelf=arr;save();openShBak('Restored '+arr.length+' books.');renderMain(true);}else openShBak('That text is not a valid backup.');}catch(e){openShBak('That text is not a valid backup.');}break;
     case 'books':openBooks();break;
+    case 'libtab':libTab=el.dataset.t;openBooks(true);break;
     case 'readsheet':openRead();break;
     case 'readfrom':exitLesson();openRead();break;
     case 'readch':var cn=+el.dataset.ch;S.read[B.id]=S.read[B.id]||{};S.read[B.id][cn]=!S.read[B.id][cn];save();renderMain(true);break;
@@ -8114,7 +8121,7 @@ if(doneCount()>0){var n0=document.querySelector('.node.current');if(n0)n0.scroll
 })();
 </script>
 <script>
-window.BL_VERSION=1794679005;
+window.BL_VERSION=1794679426;
 (function(){
   if(!/^(capacitor|ionic):$/.test(location.protocol))return;
   try{var m=document.getElementById('main');if(m&&m.innerHTML.length>50)localStorage.setItem('bookling-boot','ok');}catch(e){}
