@@ -261,6 +261,13 @@ textarea.inp{resize:vertical;font-size:12px}
 .frow .onsh{margin-top:6px;color:var(--good)}
 .fb2{display:flex;gap:8px;margin-top:8px}
 .fb2 button{flex:1;padding:8px 0;border-radius:10px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--text);font-weight:600;font-size:14px}
+.cvw{position:relative;flex:none;border-radius:6px;overflow:hidden;background:var(--surface-2);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--accent-2);font-weight:700}
+.cvw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:var(--surface-2)}
+.rtp{display:flex;gap:12px;width:100%;text-align:left;padding:11px 12px;margin-top:8px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.rtp.on{border-color:var(--accent);background:var(--surface-2)}
+.rtp i{flex:none;width:22px;height:22px;border-radius:7px;border:1.5px solid var(--line-2);display:grid;place-items:center;font-style:normal;color:var(--on-accent);font-size:14px;font-weight:700;margin-top:1px}
+.rtp.on i{background:var(--accent);border-color:var(--accent)}
+.rtp b{display:block;font-size:14px;margin-bottom:2px}.rtp span{font-size:13px;color:var(--muted);line-height:1.35}
 </style>
 </head>
 <body>
@@ -1303,79 +1310,162 @@ s:[["l","Prescient and wrong","Readers across the spectrum point out that the Ma
 D:[["m","Why do discussions of the Manifesto often bring up twentieth-century states?","Authoritarian regimes claimed to act in its name, and their record is part of its legacy",["They wrote the Manifesto","They banned capitalism peacefully everywhere","They followed the ten measures exactly"],"Theory and practice are judged together."]]}]]
 ]}));
 MORE.push(MK({id:"montgomery",t:"Happy City",a:"Charles Montgomery",y:2013,
-q:"how does the design of a city shape how happy its people are?",
-ans:"Montgomery argues that cities are happiness projects. Using psychology and examples from Bogotá to Copenhagen, he shows that sprawl and car dependence cost us time, health and relationships, and that cities designed for closeness, choice, nature, fairness and walking make people measurably happier.",
-cov:"Lessons follow the book's main arguments in order. The real book is full of field visits and studies not covered here.",
+q:"if cities are built by people, why not build them to make people happy?",
+ans:"Montgomery argues that the way we build cities changes how we feel, think and behave. Using happiness science, history and his own street experiments, he shows that the sprawling, car-built city costs us time, money, health and friendships; that closeness, lively street edges, walking, cycling and fair access make us happier; and that the happy city, the green city and the low-carbon city are the same place, which ordinary citizens can help build.",
+cov:"Thirteen lessons follow the book's thirteen chapters in order, from the Bogota opening to the closing call to act. Content is built from chapter-level summaries and sources about the book, so use the real book for the full stories.",
 u:[
-["The idea","Opening chapters",[
-{i:"sun",t:"The mayor of happy",c:"Bogotá",d:"Enrique Peñalosa and the city as a happiness project.",
-n:["Peñalosa remade Bogotá around people instead of cars, treating the city as a tool for happiness.",
-"The book opens with Enrique Peñalosa, mayor of Bogotá from 1998 to 2001. He argued that a city should be designed to make its citizens happy, especially the poor majority without cars. He built bus rapid transit, bike paths, parks and wide sidewalks, expanded the Sunday ciclovía, and fought parking on sidewalks. His claim: a city good for children is good for everyone.",
-["Peñalosa, mayor of Bogotá, put happiness at the center of planning","Most residents had no car, yet roads served the few who did","TransMilenio bus rapid transit, bike paths, parks, libraries","Ciclovía: streets closed to cars for people on Sundays","Design reflects values: who the city is built for"],
-"Montgomery starts with Bogotá's mayor Peñalosa, who said a city should be judged by how happy its people are, and rebuilt streets for people instead of cars."],
-s:[["l","Happiness as policy","When Peñalosa took office, Bogotá was chaotic, violent and choked with cars, though most people did not own one. He asked a simple question: what makes people happy? His answer shaped spending: bus lanes, bicycle routes, parks, sidewalks and libraries, often in poor areas."],
-["m","What did Peñalosa put at the center of Bogotá's planning?","The happiness of its citizens",["Highway expansion","Attracting car factories","Tourism only"],"He framed planning as a happiness project."],
-["l","Ciclovía and equality","On Sundays, long stretches of road were closed to cars and opened to cyclists, walkers and families. Peñalosa argued public space is a matter of equality: in a park or on a sidewalk, rich and poor meet as equals. A car-centered city serves a minority."],
-["t","Peñalosa argued that cities designed for children work well for everyone.",true,"It became one of his best-known lines."],
-["m","Why did Peñalosa see sidewalks and parks as an equality issue?","Public space is where rich and poor are equal, while car-centered roads serve a minority",["They are cheaper than roads","They attract tourists","They reduce taxes"],"Space reflects who counts."]],
-D:[["m","What is Montgomery's main lesson from Bogotá?","Urban design choices reflect values and can be steered toward wellbeing",["Mayors should ban all cars","Only rich cities can change","Happiness cannot be measured"],"Cities are built expressions of priorities."]]},
-{i:"heart",t:"What makes people happy",c:"Happiness science",d:"The psychology behind the happy city.",
-n:["Strong social ties matter most for happiness, and we are bad at predicting what will make us happy.",
-"Montgomery draws on happiness research. Beyond basic security, more money adds little; we adapt to new things quickly and compare ourselves with others. What reliably makes people happier is social connection, health, a sense of control and meaning. People also make predictable mistakes, choosing bigger houses far away and underestimating the misery of long commutes.",
-["Above a basic level, income adds little lasting happiness","Hedonic adaptation: we get used to gains quickly","Status comparison drives many choices","Social connection is the strongest predictor of wellbeing","We mispredict what will make us happy, such as space over time"],
-"Montgomery's core finding: after basic needs, what makes us happiest is other people. Cities that isolate us make us unhappy even when they make us rich."],
-s:[["l","Money and adaptation","Research shows that once basic needs are met, extra income buys surprisingly little lasting happiness. We adapt to a bigger house or a nicer car and then compare ourselves with neighbors. Status races leave many people no happier."],
-["m","What does Montgomery say about income and happiness?","Above basic needs, more money adds little lasting happiness",["More money always means more happiness","Money is irrelevant at every level","Poor people are always happier"],"Adaptation and comparison limit the gain."],
-["l","People first","The most reliable source of wellbeing is relationships: family, friends and casual contact with neighbors. Trust in others matters too. Yet when choosing where to live, people trade time and connection for square footage, a choice research suggests often lowers happiness."],
-["t","Montgomery says social connection is a weak predictor of happiness.",false,"It is the strongest."],
-["m","What common mistake do people make when choosing a home?","Trading time and connection for more space",["Choosing homes too close to work","Paying too little","Living with too many friends"],"Mispredicting what will matter."]],
-D:[["m","Why does hedonic adaptation matter for city design?","Gains in private space fade quickly, while daily time and social ties keep shaping mood",["It shows people never change","It proves houses should be smaller by law","It only affects the rich"],"Design affects daily experience, not one-time thrills."]]}]],
-["The wrong turn","History and costs",[
-{i:"route",t:"How we built the dispersed city",c:"History",d:"From garden cities and modernism to sprawl.",
-n:["Twentieth-century planners separated living, working and shopping, and the car made sprawl possible.",
-"Reacting to dirty, crowded industrial cities, reformers proposed separating functions and spreading people out. Ideas like Ebenezer Howard's garden city and modernist plans like Le Corbusier's towers in parks shaped thinking. After the war, cheap cars, highways, zoning and mortgage rules produced dispersed suburbs. Montgomery calls this sprawl a grand experiment in living apart.",
-["Industrial cities were genuinely unhealthy, so reformers wanted space","Garden city and modernist ideals: separate and spread out","Zoning separated homes from shops and work","Highways and cheap cars made sprawl possible","Sprawl was a choice built into laws and subsidies, not just free markets"],
-"Montgomery argues sprawl was not a natural market outcome; it was designed into law, from zoning to highways to mortgage rules."],
-s:[["l","Escaping the slums","Industrial cities were crowded and polluted, and reformers wanted light and air. Ebenezer Howard proposed garden cities; Le Corbusier imagined towers in parks served by highways. The shared idea: separate living from working and spread people out."],
-["m","What problem did early planning reformers react against?","Crowded, polluted industrial cities",["Too many parks","Low population","Too much public transit"],"Their concerns were real."],
-["l","Building apart","After the Second World War, highways, cheap fuel, zoning that separated uses, and lending rules favoring new suburban homes built the dispersed city. Montgomery stresses that this pattern was shaped by policy and subsidy, not only by individual taste."],
-["t","Montgomery presents sprawl as purely the result of free consumer choice.",false,"He shows how laws and subsidies shaped it."],
-["m","Which policy tool separated homes from shops and jobs?","Zoning",["Ciclovía","Bike lanes","Rent control"],"Single-use zones defined suburbs."]],
-D:[["m","Why does Montgomery call sprawl an experiment?","It was a new, large-scale way of living whose effects on wellbeing were not tested in advance",["It was planned by scientists","It was temporary","It was only in one city"],"We are living with the results."]]},
-{i:"x",t:"The commuting paradox",c:"Costs of sprawl",d:"Time, health and social life lost to distance.",
-n:["Long commutes reliably lower happiness, and dispersal thins out social life.",
-"Economists Bruno Frey and Alois Stutzer found that people with long commutes report lower life satisfaction, and would need much higher pay to make up for it. Montgomery adds health costs, from inactivity and pollution, and social costs: Robert Putnam found more commuting time means less civic involvement. Dispersal also burdens the elderly, children and anyone who cannot drive.",
-["Commuting paradox: long commutes cut happiness more than people expect","Frey and Stutzer: a long commute needs much higher pay to compensate","Driving in traffic is among the least pleasant daily activities","Putnam: more commuting, less civic and social life","Sprawl isolates those who cannot drive"],
-"The commuting paradox: people accept a long commute for a bigger house, but studies show the commute costs more happiness than the house gives."],
-s:[["l","A bad trade","People move farther out for space, accepting longer drives. Frey and Stutzer found long-distance commuters were systematically less satisfied with life, and the extra house space did not make up for it. Driving in traffic ranks among the most stressful parts of the day."],
-["m","What is the commuting paradox?","People choose long commutes even though they lower life satisfaction",["Commuters earn less","Short commutes cause stress","Trains are slower than cars"],"We underestimate commuting's cost."],
-["l","Thin social lives","Robert Putnam's research suggests each extra chunk of commuting time cuts involvement in community life. Dispersed places also isolate children, older people and anyone who cannot drive, who depend on others for every trip."],
-["t","Montgomery says sprawl mostly burdens drivers, not people who cannot drive.",false,"Non-drivers are especially isolated."],
-["m","Whose research links commuting to weaker community involvement?","Robert Putnam",["Jane Jacobs","Le Corbusier","Enrique Peñalosa"],"Author of Bowling Alone."]],
-D:[["m","Why do people keep making the long-commute trade?","We overvalue visible gains like space and undervalue daily costs like time",["They have no other choice ever","They enjoy driving most","It is required by employers"],"Misprediction again."]]}]],
-["Fixing it","Toward the happy city",[
-{i:"chat",t:"Closeness and trust",c:"Social city",d:"Designing for friendly contact without crowding.",
-n:["Cities should make casual contact easy while letting people control how close they get.",
-"Montgomery argues happiness depends on the right kind of closeness. Too much crowding feels stressful, too little isolates. Good design offers a gradient from private to public, places to linger, and lots of small, chance encounters. He cites Jan Gehl and Danish examples, as well as cohousing and shared spaces. Even small changes, like front porches or benches, raise trust.",
-["We need contact, but with control over how much","A gradient from private to semi-public to public space","Soft edges: porches, stoops, front gardens","Jan Gehl: design for people lingering, not just passing","Weak ties with neighbors build trust and wellbeing"],
-"Montgomery says the happy city lets people choose how close to get: easy chance meetings, but with a private place to retreat."],
-s:[["l","Right distance","Dense towers can isolate people as much as sprawl does if they lack shared spaces. Montgomery wants a gradient: private home, semi-private porch or courtyard, then the public street. These soft edges let people meet gradually and comfortably."],
-["m","What does Montgomery mean by soft edges?","Transitional spaces like porches and front gardens between home and street",["Rounded sidewalks","Low speed limits","Parks with no fences"],"They make casual contact easy."],
-["l","Lingering and trust","Following the Danish architect Jan Gehl, Montgomery points out that people stay longer where there are places to sit, things to watch, and human-scale building fronts. Weak ties to neighbors and shopkeepers raise trust, and trust is strongly linked to wellbeing."],
-["t","Montgomery argues that density alone guarantees social connection.",false,"Without shared spaces, dense places can isolate too."],
-["m","Which architect's work on public life does Montgomery draw on?","Jan Gehl",["Robert Moses","Frank Lloyd Wright","Ebenezer Howard"],"Gehl studied how people use streets."]],
-D:[["m","Why do weak ties matter for happiness?","Small friendly contacts build trust and belonging",["They replace close friends","They reduce crime directly","They save money"],"Familiar faces make a place feel safe and warm."]]},
-{i:"route",t:"Moving, nature and fairness",c:"Retrofits",d:"Mobility, green space, equity and fixing sprawl.",
-n:["Give people freedom of movement, contact with nature, fair access, and retrofit sprawl step by step.",
-"Montgomery argues for mobility choices: walking, cycling and transit, which make people happier on their trips than driving. Nature, even small green spaces, improves mood. A happy city is also fair: public space and transit should serve everyone, not just the well-off. Sprawl can be retrofitted by adding mixed uses, connecting streets and letting people experiment with new ways to live.",
-["Walkers and cyclists report happier trips than drivers","Mobility choice is a form of freedom","Even small doses of nature lift mood","Fair cities share space and transport among all incomes","Retrofit suburbs: mix uses, connect streets, add transit","Change begins with small experiments by citizens"],
-"Montgomery's fix: give people more ways to get around, bring nature closer, share space fairly, and retrofit sprawl one street at a time."],
-s:[["l","Happy trips","Studies show people who walk or cycle to work tend to enjoy their commute more than drivers. Montgomery sees freedom of movement as central to happiness, so cities should offer real choices beyond the car. Contact with nature, even street trees and small parks, reliably lifts mood."],
-["m","Which commuters tend to report the happiest trips?","Walkers and cyclists",["Long-distance drivers","Highway commuters","People stuck in traffic"],"Active travel feels better."],
-["l","Fairness and retrofits","A happy city must be fair: when only the wealthy have good parks and fast commutes, the city fails. Montgomery shows suburbs being retrofitted with mixed uses, connected streets and transit, and ordinary citizens experimenting with public space, from painted crosswalks to shared gardens."],
-["t","Montgomery says suburbs cannot be changed and must be abandoned.",false,"He shows they can be retrofitted."],
-["x","Match each principle to an example",[["Mobility choice","Bike lanes and transit"],["Nature","Street trees and pocket parks"],["Fairness","Good public space in poor areas"],["Retrofit","Adding shops and links to a suburb"]],"Four levers for a happier city."]],
-D:[["m","Why does Montgomery stress citizen experiments?","Small, visible changes show what works and build support for bigger ones",["Governments are useless","Experts should not plan","They are free of cost"],"Everyone can help reshape a city."]]}]]
+["The idea","Chapters 1 to 3",[
+{i:"sun",t:"The Mayor of Happy",c:"Chapter 1",d:"Enrique Penalosa and the claim that cities are for people.",
+n:["Penalosa, mayor of Bogota, treated the city as a happiness project and put people before cars.",
+"The book opens with Enrique Penalosa, who as mayor of Bogota chose to ride a bicycle instead of traveling in an armored vehicle. Montgomery uses him to make the central claim: happiness in a city is not mainly about wealth, and a city should serve its people instead of its cars. Rising incomes in rich countries have not produced rising happiness, so the question becomes what actually does.",
+["Enrique Penalosa, former mayor of Bogota, is the book's opening figure","He rode a bicycle rather than an armored vehicle","Happiness is not tied directly to wealth","Cities should serve people rather than cars","Montgomery asks what urban design does to how we feel"],
+"The book's big claim in one line: a city should be judged by whether it makes its people happy, not by how fast cars move or how rich it is."],
+s:[["l","A mayor on a bicycle","Montgomery starts in Bogota with its former mayor, Enrique Penalosa. In a city shaped by fear and traffic, Penalosa rode a bicycle instead of traveling in an armored vehicle. For Montgomery, that choice signals a different idea of what a city is for."],
+["m","Who is the opening figure of the book?","Enrique Penalosa, former mayor of Bogota",["Jane Jacobs","Le Corbusier","Jan Gehl"],"The first chapter is called The Mayor of Happy."],
+["l","Wealth is not the answer","Wealthy nations have grown richer without becoming proportionally happier. If money does not explain happiness, Montgomery asks, what does? His answer will be social ties, time, health, trust and the daily experience of moving through places, all of which are shaped by urban design."],
+["t","Montgomery says a city's happiness is mainly determined by how rich its people are.",false,"He argues happiness is not tied directly to wealth."],
+["m","What is the guiding principle of this chapter?","Cities should serve people rather than cars",["Cities should be as dense as possible","Cities should maximize economic growth","Cities should copy suburbs"],"People first."]],
+D:[["m","Why does Montgomery begin with a mayor rather than a scientist?","To show that urban design is a political choice that can be steered toward wellbeing",["Because mayors know the most psychology","Because Bogota is the happiest city","Because scientists disagree"],"Cities are built expressions of choices."]]},
+{i:"building",t:"The city has always been a happiness project",c:"Chapter 2",d:"From the Athenian agora to the modern city.",
+n:["Cities have always been built around ideas of the good life, and over time the idea drifted from shared civic life to private wealth and safety.",
+"Montgomery traces the link between happiness and urban design through history. In ancient Athens, the agora was the place where citizens met, and the Greek idea of eudaimonia, flourishing, was tied to civic life. Rome had its public squares too. Over the centuries the goal shifted toward personal glory, security and material wealth. Yet research keeps finding that social trust and connection matter more to happiness than income.",
+["Athens: the agora as the center of civic life","Eudaimonia: a flourishing life, tied to public participation","Rome and Enlightenment cities also expressed ideas of the good life","The goal drifted to personal glory, security and wealth","Social trust and connection matter more than income","Aristotle, Socrates and later Freud appear as thinkers on the good life"],
+"The city has always been a happiness project: the agora and eudaimonia were about a good shared life, while our modern cities drifted toward private wealth and safety."],
+s:[["l","The agora and eudaimonia","In ancient Athens, the agora was the public heart of the city, where people met, traded and argued. Greek thinkers like Socrates and Aristotle tied a good life, eudaimonia, to taking part in civic life. Rome and later European cities also built public spaces around ideas of how people should live."],
+["m","What was the agora?","The public gathering place at the heart of Athens",["A Roman road","A military camp","A royal palace"],"It stood for shared civic life."],
+["l","The drift","Over time, Montgomery says, the idea of a good life moved from civic participation toward personal glory, then security, then material wealth. Our modern city reflects those later priorities: private homes, private cars and walls against strangers. Yet happiness research keeps pointing back to trust and connection."],
+["x","Match each term to its meaning",[["Agora","Public meeting place of Athens"],["Eudaimonia","Flourishing, a good life"],["Civic life","Taking part in shared city life"],["Drift","From shared life to private wealth and safety"]],"The old ideal versus the modern one."],
+["t","Montgomery argues social trust and connection matter more to happiness than income does.",true,"This is the thread of the book."]],
+D:[["m","What does the historical chapter suggest about modern cities?","They embody choices about what a good life is, and those choices can change",["They are natural and unchangeable","They were always about cars","They copy ancient Rome exactly"],"Design reflects values."]]},
+{i:"user",t:"The (Broken) Social Scene",c:"Chapter 3",d:"The dispersed city and what it does to time, money and relationships.",
+n:["The dispersed city spreads homes, work and shops apart, which means long commutes, high costs and thinner relationships.",
+"Montgomery calls the sprawling city the dispersed city. In places like Stockton, California, hit hard by the foreclosure crisis, and in the exurbs where people like Randy Strausser make extreme commutes, he finds the costs: time, money and friendship. Studies he cites say a person with a one-hour commute needs about 40 percent more income to be as satisfied as someone who walks to work, and Swedish research linked commutes over 45 minutes to a 40 percent higher chance of divorce.",
+["Dispersed city: homes, shops and work separated","Stockton, California, and the foreclosure crisis; Cesar Dias","Randy Strausser, an extreme long-distance exurban commuter","A one-hour commute needs about 40 percent more income to match a walker's life satisfaction (Stutzer and Frey)","Swedish study: commutes over 45 minutes linked to 40 percent higher divorce risk","Peak-hour commuters showed stress worse than fighter pilots or riot police","The poorest fifth of US families spend over 40 percent of income on cars","Social networks shrink and distrust among neighbors grows"],
+"The commuting math: a one-hour commute needs about 40 percent more pay to be as satisfied as someone who walks to work."],
+s:[["l","The dispersed city","Postwar development separated homes, shops, schools and jobs, forcing people to drive for everything. Montgomery visits Stockton, California, where foreclosures emptied neighborhoods, and meets Randy Strausser, who endures a punishing long-distance commute so his family can have the house they wanted."],
+["m","What is the dispersed city?","A city where homes, shops and jobs are spread far apart",["A city built around one tower","A city with no cars","A city of villages"],"Separation forces driving."],
+["l","The numbers","Economists Bruno Frey and Alois Stutzer found that a person with a one-hour commute needs about 40 percent more income to be as satisfied with life as someone who walks to work. A Swedish study linked commutes over 45 minutes to a 40 percent higher chance of divorce. Researchers who fitted commuters with electrode caps found rush-hour travelers more stressed than fighter pilots or riot police."],
+["m","How much extra income does a one-hour commuter need to match a walker's satisfaction?","About 40 percent more",["About 5 percent more","About double","No extra"],"Stutzer and Frey's finding."],
+["t","The poorest fifth of American families spend over 40 percent of income on cars.",true,"Car dependence is a heavy cost for the poor."],
+["x","Match each study or place to its point",[["Stutzer and Frey","Long commutes need 40 percent more pay"],["Swedish study","Over 45 minutes: more divorce"],["Electrode study","Commuters stressed like fighter pilots"],["Stockton","Foreclosure crisis in a sprawling city"]],"Chapter 3's evidence."]],
+D:[["m","Why does Montgomery call a long commute a social cost, not just a private inconvenience?","It cuts into relationships and community life, with effects like higher divorce risk",["It raises taxes","It only affects drivers' pay","It is always chosen freely"],"Distance takes more than time."]]}]],
+["How we got here","Chapters 4 and 5",[
+{i:"route",t:"How we got here",c:"Chapter 4",d:"Policy, zoning, speed and the car.",
+n:["The dispersed city was built by reformers, zoning and policy aiming at separation and speed, not by accident.",
+"Modern cities were shaped by policy, incentives and regulation, not natural growth. Reformers reacting to filthy, crowded slums, like those exposed in Andrew Mearns's report on London, proposed two cures: separation and speed. Garden cities and Le Corbusier's Radiant City imagined people living apart from work. Zoning laws made separation legal, and General Motors' Futurama exhibit at the 1939 World's Fair sold a future of highways. Once built around cars, cities forced more car use.",
+["Cities were shaped by policy, incentives and regulation","Andrew Mearns exposed London's slums","Reform idea one: separation, through zoning and garden cities","Reform idea two: speed, through cars and highways","Le Corbusier's Radiant City: towers in parks","GM's Futurama at the 1939 World's Fair sold a car future","Car-centered planning reinforced itself"],
+"Sprawl was designed: reformers fled slum conditions by separating functions and speeding up movement, and zoning plus highways locked it in."],
+s:[["l","Reaction to the slum","Industrial slums, such as those exposed in a famous report on London by Andrew Mearns, were crowded, filthy and deadly. Reformers wanted to escape them. Garden cities offered small, green, separate towns. Le Corbusier imagined towers set in parks. The common idea was to pull homes away from workplaces."],
+["m","What problem did early reformers react against?","Crowded, unhealthy industrial slums",["Too many parks","Low population","Too much green space"],"Their concerns were real."],
+["l","Separation and speed","Two ideas took hold: separation, written into zoning laws, and speed, delivered by cars and highways. At the 1939 World's Fair, General Motors' Futurama showed visitors a future of vast highways. Once cities were rebuilt around cars, driving became necessary, which justified more road building."],
+["t","The book presents sprawl as the natural result of free consumer choice.",false,"It shows policy, zoning and incentives shaped it."],
+["m","What was GM's Futurama?","A 1939 World's Fair exhibit selling a future of highways",["A zoning law","A garden city","A slum report"],"It promoted car-based planning."],
+["x","Match each idea to its source",[["Garden cities","Separation of homes and work"],["Radiant City","Le Corbusier's towers in parks"],["Zoning","Legal separation of uses"],["Futurama","Selling the highway future"]],"Chapter 4 in four items."]],
+D:[["m","Why does Montgomery stress that sprawl was built by policy?","Because what was designed can be redesigned",["To blame individuals","To argue against all zoning","To praise highways"],"Change is possible."]]},
+{i:"eye",t:"Getting it wrong",c:"Chapter 5",d:"We misjudge what will make us happy.",
+n:["We are bad at predicting what will make us happy: we overvalue space and things and undervalue time and community.",
+"People repeatedly choose badly. Expectations rise as we acquire more, so gains fade, and long commutes keep hurting. Montgomery cites Daniel Kahneman's work and the Harvard dormitory study, where students overestimated how much their housing would matter and underestimated community. Mark Twain, Gary Becker and the author's own purchase of a Vancouver fixer-upper illustrate the pull of bigger homes, while wide roads invite speeding and sedentary suburban life brings hidden risks.",
+["People misjudge what will make them happy","Expectations rise with each acquisition","Long commutes keep eroding satisfaction","Harvard dormitory study: students overvalued the architecture and undervalued community","Daniel Kahneman and the idea that attention distorts judgments","California versus the Midwest: people assume the weather matters more than it does","Wide roads encourage speeding","Sedentary suburban life has hidden health costs"],
+"Montgomery's repeated point: we trade away the things that make us happy, like time and friends, for things we wrongly expect to, like space and status."],
+s:[["l","Bad forecasts","Behavioral research shows we are poor at predicting our own happiness. We expect a bigger house or a nicer car to lift us, but we adapt quickly and keep wanting more. Meanwhile we underestimate the pain of a long commute, which does not fade with time."],
+["m","Why do gains from bigger houses and new things fade?","Expectations rise as we acquire more",["Houses lose value","Neighbors move away","Taxes increase"],"Adaptation."],
+["l","The Harvard dormitories","In a study of Harvard students assigned to dormitories, students overestimated how much the quality of their housing would affect their happiness and underestimated how much community would. Montgomery admits he made the same kind of error when buying a fixer-upper in Vancouver."],
+["t","In the Harvard dormitory study, students correctly predicted the importance of architecture.",false,"They overvalued architecture and undervalued community."],
+["m","What does the book say about wide roads?","They encourage speeding",["They reduce crashes","They calm traffic","They make walking pleasant"],"Design sets speed."]],
+D:[["m","Why does getting it wrong matter for city design?","Individual choices based on bad forecasts add up to places that make many people less happy",["People always choose correctly","Experts must decide everything","Preferences never change"],"Collective mistakes are built into the landscape."]]}]],
+["Closeness","Chapters 6 and 7",[
+{i:"heart",t:"How to be closer",c:"Chapter 6",d:"Density, privacy and nature.",
+n:["Cities need density with privacy and nature, because we want both connection and retreat.",
+"Montgomery explores how cities can bring people closer without crowding them. We need connection and also time alone. Greenery supports wellbeing, social cohesion and lower crime. People prefer open, savanna-like views, but richer, more complex natural environments offer greater benefits, an idea tied to biophilia. A New York City study tested how different landscapes affected mood and stress. Residential towers, he notes, can leave people less trusting than almost any other kind of neighborhood.",
+["We want both connection and privacy","Greenery supports wellbeing, social cohesion and lower crime","Biophilia: a human affinity for nature","People prefer open, savanna-like landscapes","More complex ecosystems provide greater benefits","A New York City study measured how landscapes changed mood and stress","Residential towers can be among the least trusting places to live","Vancouver's mixed-use neighborhoods offered a middle path"],
+"Density alone is not the goal. People report the least trust in residential towers, even less than in the far exurbs, so closeness needs design."],
+s:[["l","Closer, but not crowded","Humans need both company and solitude. Montgomery shows that crowding stresses us while isolation harms us. Good design offers choice: private homes, shared spaces and ways to meet gradually, often with trees and greenery nearby."],
+["m","What does greenery contribute, according to the chapter?","Wellbeing, social cohesion and lower crime",["Higher rents only","More traffic","Fewer neighbors"],"Nature has social effects too."],
+["l","Towers and trust","Not all density works. Montgomery cites research showing the lowest levels of trust in residential towers, even lower than in the exurban edge. Vancouver's mid-rise, mixed-use neighborhoods show an alternative, where people live close together with shops, parks and street life at their feet."],
+["t","The book says residential towers produce the highest levels of neighborly trust.",false,"They can produce among the lowest."],
+["x","Match each idea to its meaning",[["Biophilia","Our affinity for nature"],["Savanna preference","Liking open, park-like views"],["Tower trust problem","Low trust in residential towers"],["Mixed-use","Homes, shops and parks together"]],"Chapter 6 in four terms."]],
+D:[["m","What is the practical lesson of the towers finding?","How density is designed matters, not only how much of it there is",["Density is always bad","Towers should be taller","Suburbs are better"],"Closeness needs shared life."]]},
+{i:"chat",t:"Convivialities",c:"Chapter 7",d:"Streets that make strangers into neighbors.",
+n:["Lively, human-scale streets build trust; sterile ones isolate. Reclaiming streets for people is cheap and effective.",
+"Drawing on Richard Sennett and the Danish architect Jan Gehl, Montgomery shows that sociable cities are designed for lingering. He studies Italian towns like Siena's Piazza del Campo, post-war Copenhagen, Melbourne and New York. In the East Houston Street experiment with psychologist Colin Ellard, walkers wearing skin-sensors reported being less happy outside the long glass frontage of a supermarket than on the livelier block next door. Bogota's Ciclovia and New York's Summer Streets show how cheaply streets can be given back to people.",
+["Jan Gehl studies life between buildings","Richard Sennett on public life","Siena's Piazza del Campo as a model of sociable space","Copenhagen, Melbourne and New York adopt people-first streets","Ellard and Montgomery's East Houston Street experiment with skin conductance sensors","Participants were less happy outside a long, blank, glass supermarket front","Varied, active frontages slow people down and make them more social","Melbourne rules require shop fronts to be mostly doors or display windows","Ciclovia and Summer Streets: temporary car-free streets"],
+"Montgomery's experiment: people felt markedly worse outside a blank glass supermarket front than a block away on a lively, varied street. Active edges make cities kinder."],
+s:[["l","Streets for lingering","Jan Gehl found that places with small, varied frontages, doors and windows keep people there longer and make them more social. Uniform, blank facades make people hurry past. Montgomery visits Siena's Piazza del Campo and post-war Copenhagen to see public space that works."],
+["m","Whose work on life between buildings does Montgomery draw on in this chapter?","Jan Gehl",["Robert Moses","Le Corbusier","Ebenezer Howard"],"The Danish architect studied how people use streets."],
+["l","The East Houston Street experiment","With cognitive psychologist Colin Ellard, Montgomery led a walking tour on Manhattan's East Houston Street. Participants wore skin-conductance sensors and rated their happiness at each stop. They reported feeling markedly less happy outside a Whole Foods with a block-long smoked-glass front than on the livelier block to the east, and calmer when protected from traffic."],
+["m","What did the East Houston Street experiment find?","People felt less happy outside the blank glass front than on the livelier block",["People preferred the blank facade","Nothing differed","People were happiest near traffic"],"Complexity and activity matter."],
+["l","Giving streets back","Bogota's Ciclovia closes streets to cars on Sundays for walkers and cyclists, and New York's Summer Streets does something similar. These cost little, Montgomery notes, and show that cities can be changed quickly. Melbourne requires street-level frontages to be mostly doors or display windows."],
+["x","Match each program or place to its idea",[["Ciclovia","Sunday car-free streets in Bogota"],["Summer Streets","New York's car-free streets"],["Piazza del Campo","Siena's famous public square"],["Melbourne rule","Shop fronts mostly doors or windows"]],"Chapter 7 examples."]],
+D:[["m","Why do varied facades make streets more social?","They slow walkers down and give them things to look at and stop for",["They are cheaper to build","They block sound","They raise rents"],"Pace shapes social life."]]}]],
+["Moving","Chapters 8 and 9",[
+{i:"route",t:"Mobilicities I",c:"Chapter 8",d:"How we move shapes how we feel.",
+n:["Driving brings stress and entrapment, while walking and cycling bring happiness and health.",
+"Montgomery says how we move changes how we feel. Driving in sprawl is stressful and traps people in cars, while those who propel themselves report greater happiness and health. Atlanta shows how sprawl discourages walking and cycling, while cyclists like Robert Tudge, who rides even in frigid weather, show what people gain. Poor transit pushes people into cars.",
+["Mobilities: the ways people move shape their feelings","Driving brings stress, entrapment and sedentary risk","Walking and cycling bring happiness and health","Self-propelled commuters report greater happiness","Atlanta as a sprawl example that discourages active travel","Robert Tudge, a year-round cyclist","Poor transit pushes people into cars"],
+"The way you travel changes your mood: self-propelled commuters, those who walk or cycle, report more happiness than drivers."],
+s:[["l","Trapped in the car","Montgomery argues commuting by car is one of the most stressful parts of the day, since you are trapped, can't control traffic and are physically inactive. Atlanta's sprawl makes the car almost required, and punishes anyone who tries to walk or bike."],
+["m","Which city does the chapter use as an example of sprawl discouraging active travel?","Atlanta",["Copenhagen","Bogota","Paris"],"Sprawl makes cars necessary."],
+["l","The self-propelled","Commuters who walk or cycle report greater happiness and health. Robert Tudge, who cycles to work even in frigid weather, is among Montgomery's examples. Cities that offer safe, pleasant ways to move under your own power give people this gain."],
+["t","Self-propelled commuters report lower happiness than drivers.",false,"They report greater happiness."],
+["m","Who is the winter cyclist Montgomery meets?","Robert Tudge",["Randy Strausser","Cesar Dias","Enrique Penalosa"],"He rides in cold weather."]],
+D:[["m","Why does poor transit matter for happiness in this chapter?","It pushes people into stressful, sedentary car travel",["It makes cities greener","It reduces commutes","It raises trust"],"Choices matter."]]},
+{i:"bolt",t:"Mobilicities II",c:"Chapter 9",d:"Freedom through varied, shared, flexible mobility.",
+n:["Freedom is having many ways to move, not owning a car. Real-time information and frequent service make transit work.",
+"Montgomery argues freedom comes from varied, shared and flexible mobility. Real-time arrival information reduces perceived waits, and frequent service, around every fifteen minutes, matters. Paris offers Velib' bikes and Autolib' cars with real-time signage, Houten in the Netherlands and Copenhagen build around bikes, London and Stockholm use congestion pricing, New York reassigns street space, and car sharing like car2go adds flexibility. Mid-century visions from Norman Bel Geddes and Buckminster Fuller, and economist Eric Britton, offer context.",
+["Freedom comes from variety, sharing and flexibility","Real-time information reduces the felt length of waits","Service about every 15 minutes is a practical threshold","Paris: Velib' bikes, Autolib' cars, real-time signage","Houten (Netherlands) and Copenhagen: bicycle cities","London and Stockholm: congestion pricing","New York reallocates street space","Car sharing such as car2go","Infrastructure must be safe for children and seniors"],
+"Real freedom of movement is having many good options, like bikes, trains, car sharing and walking, not owning one car."],
+s:[["l","Real-time and frequent","Montgomery notes that knowing when the bus arrives makes the wait feel shorter, and that frequent service, around every 15 minutes, makes transit useful without schedules. Paris signs show real-time arrivals, and its Velib' bikes and Autolib' cars add flexibility."],
+["m","What helps reduce the perceived length of waits for transit?","Real-time arrival information",["Longer routes","Fewer vehicles","Higher fares"],"Uncertainty makes waits feel longer."],
+["l","Pricing and sharing","London and Stockholm charge drivers to enter central areas, congestion pricing. New York has reassigned street space to people. Houten in the Netherlands and Copenhagen show whole cities built around cycling. Montgomery says infrastructure must be safe enough for children and seniors, not only brave adults."],
+["x","Match each city to its example",[["Paris","Velib' and Autolib'"],["Houten","Bicycle-first Dutch town"],["Stockholm","Congestion pricing"],["New York","Street space reallocated to people"]],"Chapter 9's examples."],
+["t","The chapter says freedom of movement comes mainly from owning a car.",false,"It comes from having varied, shared, flexible options."]],
+D:[["m","Why does Montgomery insist infrastructure serve children and seniors?","A city is only truly mobile if the least confident travelers can also move safely",["They pay more taxes","They own more cars","It saves money"],"A test of design."]]}]],
+["Fairness and connection","Chapters 10 and 11",[
+{i:"scale",t:"Who is the city for?",c:"Chapter 10",d:"The right to the city and equity.",
+n:["A happy city has to be fair: the right to the city means sharing transit, safety and green space, and guarding against displacement.",
+"Montgomery asks who the city is for. The right to the city requires redistributing power, not just reviving old designs. Equity means fair access to transit, safety and green space. Bogota, once marked by deep socioeconomic divides, shows an approach under mayors Antanas Mockus and Enrique Penalosa, whose TransMilenio bus rapid transit gave fast service to the poor majority. But improvements can trigger gentrification that pushes poorer residents out.",
+["The right to the city: all residents should shape and share it","Equity: fair access to transit, safety and green space","Redistributing power, not only restoring old designs","Bogota's history of deep inequality","Mayors Antanas Mockus and Enrique Penalosa","TransMilenio bus rapid transit served the majority","Improvements can lead to gentrification and displacement"],
+"A city that makes only some people happy is not a happy city. Good changes still need protection against pushing poorer residents out."],
+s:[["l","The right to the city","Montgomery argues cities must serve everyone, not only those who own cars or can afford nice neighborhoods. In Bogota, mayors Antanas Mockus and Enrique Penalosa built a bus rapid transit system, TransMilenio, to give ordinary people fast, dignified travel."],
+["m","What is TransMilenio?","Bogota's bus rapid transit system",["A subway in Paris","A bike-share program","A highway"],"Fast transit for the majority."],
+["l","The gentrification risk","Making a place better can raise prices and displace those who lived there. Montgomery stresses that fairness means planning to keep housing and access affordable, so that happier streets do not become exclusive ones."],
+["t","Montgomery warns that improvements can cause gentrification.",true,"Equity requires care."],
+["m","What does equity mean in this chapter?","Fair access to transit, safety and green space",["Identical homes for everyone","Equal salaries","Banning cars"],"Fairness of access, not sameness."]],
+D:[["m","Why is returning to older designs not enough, according to the chapter?","Equity requires changing who has power over the city, not only its appearance",["Old designs are too expensive","Old designs were perfect","Power is irrelevant"],"Design plus fairness."]]},
+{i:"x",t:"Everything is connected to everything else",c:"Chapter 11",d:"Hedonistic sustainability and the cost of sprawl.",
+n:["The happy city, the green city and the low-carbon city are the same place.",
+"Montgomery argues sustainability does not have to mean sacrifice. Hedonistic sustainability, an idea from the architects Bjarke Ingels Group, says eco-friendly design can improve life, as in Copenhagen's waste-to-energy power plant topped with a ski slope. Cities hold about half of humanity but use roughly three quarters of energy and emit most greenhouse gases, and the dispersed city is the most wasteful form. Sprawl also strains municipal budgets, while dense, mixed-use development brings resilience. Portland's urban growth boundary and Asheville, North Carolina, show alternatives.",
+["Hedonistic sustainability: green design that improves quality of life","Copenhagen waste-to-energy plant with a ski slope (Bjarke Ingels Group)","The happy city, green city and low-carbon city are the same place","Cities use a large share of energy and produce most emissions","The dispersed city is the most wasteful pattern","Sprawl strains municipal budgets","Dense, mixed-use development brings economic and environmental resilience","Portland urban growth boundary; Asheville"],
+"Montgomery's linking idea: what makes a city happier, like walking, closeness and fewer cars, also makes it greener and cheaper to run."],
+s:[["l","Ski slope on a power plant","In Copenhagen, the architects Bjarke Ingels Group designed a waste-to-energy plant with a ski slope on its roof. Montgomery uses it to illustrate hedonistic sustainability: environmental design that people enjoy, not something they endure."],
+["m","What is hedonistic sustainability?","Eco-friendly design that also improves quality of life",["Spending as much as possible","Banning pleasure","Moving to the suburbs"],"Green and joyful together."],
+["l","Sprawl costs everyone","Cities hold about half of humanity yet use around three quarters of energy and produce about 80 percent of greenhouse gas emissions, and dispersed cities are the most wasteful. Sprawl also strains municipal budgets, since long roads and pipes serve few people, while dense mixed-use areas are cheaper and more resilient."],
+["t","Montgomery says the happy city and the low-carbon city are largely the same place.",true,"The book's central linkage."],
+["m","Which city's urban growth boundary does Montgomery discuss?","Portland, Oregon",["Atlanta","Stockton","Vancouver"],"A tool to limit sprawl."]],
+D:[["m","Why does Montgomery want sustainability to promise more happiness?","People are more likely to choose changes that improve their lives than ones that only demand sacrifice",["Happiness is cheaper","Governments forbid sacrifice","Nobody cares about the climate"],"The sustainable city has to be attractive."]]}]],
+["Fixing it","Chapters 12 and 13",[
+{i:"blocks",t:"Retrofitting sprawl",c:"Chapter 12",d:"Urban surgery on the suburbs.",
+n:["Sprawl can be repaired by adding mixed uses and centers, but outdated zoning and financial incentives block it.",
+"Montgomery argues suburbs need urban surgery: adding shops, homes, offices and public spaces to places that have only houses. Examples include Lakewood, where a failed mall became a walkable town center, Seaside in Florida, and Smyrna's Market Village, along with residents like Robin Meyer in Mableton pushing for a community center and advocates like Galina Tachieva. The Congress for the New Urbanism backs sprawl repair. Old zoning codes and financial incentives are the main obstacles, and form must not overshadow function.",
+["Urban surgery: adding mixed uses to sprawl","A dead mall transformed into a walkable town center (Lakewood)","Seaside, Florida, and Smyrna's Market Village as examples","Robin Meyer in Mableton, Georgia, pushing for a community center","Galina Tachieva advocates sprawl repair","Congress for the New Urbanism","Zoning codes and financial incentives block retrofits","Form must not overshadow function"],
+"To fix sprawl, add the missing pieces: shops, homes and public places in the right mix, and rewrite the zoning codes that forbid them."],
+s:[["l","Adding what is missing","Suburbs built for cars lack centers. Retrofitting adds shops, apartments, offices, parks and connected streets so people can walk to things. Montgomery cites Lakewood, where a failed mall was reborn as a walkable town center, and Smyrna's Market Village."],
+["m","What is a retrofit of sprawl?","Adding mixed uses and public places to car-built suburbs",["Demolishing the suburbs","Building more highways","Banning shops"],"Surgery, not demolition."],
+["l","Obstacles","The main barriers are old zoning codes that outlaw mixed use and financial rules that favor conventional development. Montgomery also warns that fancy design alone cannot fix places if they do not work for daily life: form must not overshadow function."],
+["t","Montgomery says zoning codes and financial incentives are obstacles to retrofitting.",true,"They need to change."],
+["x","Match each person or group to its role",[["Robin Meyer","Mableton resident pushing for a center"],["Galina Tachieva","Advocate of sprawl repair"],["Congress for the New Urbanism","Group promoting walkable planning"],["Lakewood","Dead mall turned town center"]],"Chapter 12's cast."]],
+D:[["m","Why does Montgomery caution that form must not overshadow function?","A beautiful place that does not support daily life will not make people happier",["Beauty is irrelevant","Function is illegal","Form costs more"],"Design must work."]]},
+{i:"star",t:"Save your city, save yourself",c:"Chapter 13",d:"Citizens, anger and experiments.",
+n:["Ordinary residents can reshape their cities, turning anger into action and reclaiming shared space.",
+"The closing chapter calls on residents, whom Montgomery names citadins, to act. He tells of a boy and his mother who challenged a school ban on biking in 2009, Aaron Naparstek's traffic advocacy in Brooklyn, and Mark Lakeman's Sellwood neighborhood in Portland, where neighbors transformed an intersection into the Share-It-Square piazza with City Repair. Such projects raise wellbeing and build community. Montgomery's own urban experiments, from inviting strangers into homes during the Vancouver Olympics to the Happy Streets tests, show the same spirit.",
+["Citadins: residents who shape their city","A school biking ban challenged in 2009 by a boy and his mother","Aaron Naparstek, traffic advocate in Brooklyn","Mark Lakeman and City Repair in Sellwood, Portland","The Share-It-Square piazza at an intersection","Channel anger into constructive advocacy","Reclaiming shared space builds community and wellbeing","Montgomery's own experiments: Home for the Games, Happy Streets"],
+"Montgomery's last message: you do not have to wait for planners. Neighbors can reclaim a street, and doing it makes everyone happier."],
+s:[["l","Citadins","Montgomery ends by saying cities belong to the people who live in them. He tells of Adam and his mother, who in 2009 fought a ban on biking to school, and of Aaron Naparstek in Brooklyn, who turned frustration with dangerous traffic into a campaign."],
+["m","What does Montgomery call residents who shape their city?","Citadins",["Bureaucrats","Developers","Tourists"],"Citizens as city-makers."],
+["l","Share-It-Square","In Sellwood, Portland, Mark Lakeman and neighbors working with City Repair painted and rebuilt an intersection into a shared piazza, the Share-It-Square. Montgomery says such projects raise wellbeing and build community. His own experiments, such as getting Vancouverites to host strangers during the Olympics, follow the same urban-experimentalist idea."],
+["t","Montgomery says citizens must wait for planners before changing their streets.",false,"He urges residents to act."],
+["x","Match each person or project to its place",[["Mark Lakeman","Sellwood, Portland"],["Aaron Naparstek","Brooklyn traffic advocacy"],["Share-It-Square","Neighbors' intersection piazza"],["Home for the Games","Opening homes to strangers in Vancouver"]],"Chapter 13 and Montgomery's own work."]],
+D:[["m","What is the book's overall message about change?","Cities are built by people and can be rebuilt, with each person able to help",["Only governments can change cities","Change is impossible","Only architects matter"],"Agency, from the mayor to the neighbor."]]}]]
 ]}));
 MORE.push(MK({id:"plato",t:"The Republic",a:"Plato",y:-375,
 q:"what is justice, and is a just person happier than an unjust one?",
@@ -1873,6 +1963,7 @@ BOOKS.forEach(function(b){b.lessons.forEach(function(L){L.steps.forEach(function
 function fresh(){return {xp:0,streak:0,last:null,done:{},boss:{},book:'jacobs',att:0,ok:0,perfect:0,read:{},srs:{},mode:'learn'};}
 var S=Object.assign(fresh(),load()||{});
 if(!Array.isArray(S.shelf))S.shelf=SEED.map(function(x,i){return {k:'s'+i,t:x[0],a:x[1],s:x[2]};});
+if(!S.retell||typeof S.retell!=='object')S.retell={};
 if(typeof S.boss!=='object'||S.boss===null)S.boss={jacobs:!!S.boss};
 var tab='learn',zoom=0,resetArmed=false,run=null;
 var B,LESSONS,BOSS,UNITS,CHAPTERS,NEXT,BYID,CH2L;
@@ -1957,7 +2048,7 @@ function nodeHTML(L,x,cur){
 }
 function modeBar(){
   var r=S.mode==='reinforce',sh=shelfOfBook(B);
-  return '<div class="capr" style="margin-top:18px"><p class="cap"><b style="color:var(--text)">'+(r?'Reinforce':'Learn')+'</b>. '+(r?'It is on your Read shelf, so you are reviewing what you already know.':sh==='to-read'?'It is on your To read shelf, so you are learning it from the start.':'Add it to your shelf to choose Learn or Reinforce.')+'</p><div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end"><button class="linkbtn" data-act="readsheet">Read the real book</button><button class="linkbtn" data-act="notes">Notes</button></div></div>';
+  return '<div class="capr" style="margin-top:18px"><p class="cap"><b style="color:var(--text)">'+(r?'Reinforce':'Learn')+'</b>. '+(r?'It is on your Read shelf, so you are reviewing what you already know.':sh==='to-read'?'It is on your To read shelf, so you are learning it from the start.':'Add it to your shelf to choose Learn or Reinforce.')+'</p><div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end"><button class="linkbtn" data-act="readsheet">Read the real book</button><button class="linkbtn" data-act="notes">Notes</button><button class="linkbtn" data-act="retell">Retell it'+((S.retell&&S.retell[B.id])?' ('+S.retell[B.id].best+'%)':'')+'</button></div></div>';
 }
 function reinforceHTML(){
   var h=heroHTML()+modeBar(),due=dueQs().length,all=allQs(),m=mastered(all);
@@ -2048,13 +2139,32 @@ function openRead(){
 function openBooks(){
   openOverlay('<h2>'+tr('Your library')+'</h2><p>'+tr('Pick a book to learn.')+'</p>'+BOOKS.map(function(b){
     var d=b.lessons.filter(function(L){return S.done[L.id];}).length+(S.boss[b.id]?1:0),t=b.lessons.length+1;
-    return '<button class="bk'+(b.id===B.id?' on':'')+'" data-act="pick" data-id="'+b.id+'"><div class="mono" aria-hidden="true" style="width:44px;height:44px;font-size:17px">'+b.initials+'</div><div style="flex:1;min-width:0"><b>'+esc(b.title)+'</b><span>'+esc(tr('{0}, {1} of {2} steps',b.author,d,t))+'</span></div></button>';
+    return '<button class="bk'+(b.id===B.id?' on':'')+'" data-act="pick" data-id="'+b.id+'">'+(coverOfBook(b)?covEl(coverOfBook(b),b.title):'<div class="mono" aria-hidden="true" style="width:44px;height:44px;font-size:17px">'+b.initials+'</div>')+'<div style="flex:1;min-width:0"><b>'+esc(b.title)+'</b><span>'+esc(tr('{0}, {1} of {2} steps',b.author,d,t))+'</span></div></button>';
   }).join(''));
 }
 
 /* ---------- shelf ---------- */
 var shTab='read',shQ='';
 function norm(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();}
+function covEl(c,t,sz){
+  var w=sz==='M'?64:38,h=sz==='M'?96:56,ini=String(t||'?').replace(/^(the|a|an)\s+/i,'').charAt(0).toUpperCase();
+  return '<div class="cvw" style="width:'+w+'px;height:'+h+'px"><span>'+esc(ini)+'</span>'+(c?'<img src="https://covers.openlibrary.org/b/id/'+c+'-'+(sz||'S')+'.jpg" alt="" loading="lazy" onerror="this.remove()">':'')+'</div>';
+}
+function coverOfBook(b){var n=norm(b.title),x=S.shelf.filter(function(i){return norm(i.t).indexOf(n)===0&&i.c;})[0];return x?x.c:0;}
+var covBusy=false;
+function ensureCovers(){
+  if(covBusy||typeof fetch!=='function')return;
+  var x=S.shelf.filter(function(i){return !i.c&&!i.cx;})[0];if(!x)return;
+  covBusy=true;
+  var q='https://openlibrary.org/search.json?title='+encodeURIComponent(x.t.split(':')[0].replace(/\(.*?\)/g,'').trim())+'&author='+encodeURIComponent(x.a.replace(/[*]/g,'').split(',')[0])+'&fields=cover_i&limit=5';
+  fetch(q).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){
+    var d=(j.docs||[]).filter(function(z){return z.cover_i;})[0];
+    if(d)x.c=d.cover_i;else x.cx=1;
+    save();covBusy=false;
+    var m=document.getElementById('shrows');if(m&&tab==='shelf')m.innerHTML=shRows();
+    setTimeout(ensureCovers,350);
+  }).catch(function(){covBusy=false;});
+}
 function stoopOf(it){
   var n=norm(it.t);
   for(var i=0;i<BOOKS.length;i++){if(n.indexOf(norm(BOOKS[i].title))===0)return BOOKS[i];}
@@ -2067,8 +2177,8 @@ function shRows(){
   var rows=S.shelf.filter(function(x){return (q?true:x.s===shTab)&&(!q||norm(x.t+' '+x.a).indexOf(q)>=0);});
   if(!rows.length)return findBtn()+'<div class="empty">'+(q?'Not on your shelves yet. Tap the button above to find it.':'Nothing here yet. Search for a book above.')+'</div>';
   return findBtn()+(q?'<p class="cap" style="margin-top:12px">On your shelves</p>':'')+rows.map(function(x){
-    var cv=x.c?'<img class="cv" src="https://covers.openlibrary.org/b/id/'+x.c+'-S.jpg" alt="" loading="lazy">':null,b=stoopOf(x),ini=x.t.replace(/^(the|a|an)\s+/i,'').charAt(0).toUpperCase();
-    return '<button class="srow" data-act="shitem" data-k="'+esc(x.k)+'">'+(cv||'<div class="sm" aria-hidden="true">'+esc(ini)+'</div>')+'<div style="flex:1;min-width:0"><b>'+esc(x.t.split(':')[0])+'</b><span>'+esc(x.a)+'</span></div>'+(q&&!b?'<em class="tag w" style="color:var(--muted);border-color:var(--line-2)">'+(x.s==='read'?'Read':'To read')+'</em>':b?'<em class="tag">Lessons</em>':x.w?'<em class="tag w">Requested</em>':'')+'</button>';
+    var b=stoopOf(x),ini=x.t.replace(/^(the|a|an)\s+/i,'').charAt(0).toUpperCase();
+    return '<button class="srow" data-act="shitem" data-k="'+esc(x.k)+'">'+covEl(x.c,x.t)+'<div style="flex:1;min-width:0"><b>'+esc(x.t.split(':')[0])+'</b><span>'+esc(x.a)+'</span></div>'+(q&&!b?'<em class="tag w" style="color:var(--muted);border-color:var(--line-2)">'+(x.s==='read'?'Read':'To read')+'</em>':b?'<em class="tag">Lessons</em>':x.w?'<em class="tag w">Requested</em>':'')+'</button>';
   }).join('');
 }
 function shelfHTML(){
@@ -2085,7 +2195,7 @@ function findBtn(){return shQ.trim().length>1?'<button class="btn" style="margin
 function findRow(r,i){
   var on=S.shelf.filter(function(x){return norm(x.t+' '+x.a)===norm(r.t+' '+r.a)||norm(x.t)===norm(r.t);})[0];
   var has=stoopOf({t:r.t});
-  var cov=r.c?'<img class="cv" src="https://covers.openlibrary.org/b/id/'+r.c+'-S.jpg" alt="" loading="lazy">':'<div class="sm" aria-hidden="true">'+esc(r.t.charAt(0).toUpperCase())+'</div>';
+  var cov=covEl(r.c,r.t);
   return '<div class="frow">'+cov+'<div style="flex:1;min-width:0"><b>'+esc(r.t)+'</b><span>'+esc(r.a||'Unknown author')+(r.y?', '+r.y:'')+'</span>'+(has?'<em class="tag" style="margin-top:4px;display:inline-block">Lessons ready</em>':'')+
    (on?'<span class="onsh">On your '+(on.s==='read'?'Read':'To read')+' shelf</span>':'<div class="fb2"><button data-act="fadd" data-i="'+i+'" data-s="to-read">To read</button><button data-act="fadd" data-i="'+i+'" data-s="read">Read</button></div>')+'</div></div>';
 }
@@ -2108,10 +2218,28 @@ function openFind(){
     renderFind();
   }).catch(function(){if(done)return;done=true;clearTimeout(t);renderFind('error');});
 }
+/* ---------- retell it ---------- */
+var rtSel=[];
+function rtPoints(){return B.lessons.map(function(L){return {t:L.title,p:L.note.line};});}
+function openRetell(){
+  rtSel=[];
+  openOverlay('<h2>Retell it</h2><p>Explain \u201c'+esc(B.title)+'\u201d as if to a friend: what is it about and what are its main ideas? Say it out loud, or type it here. Nothing is graded yet.</p><textarea class="inp" rows="6" placeholder="In my own words\u2026"></textarea><button class="btn" data-act="rtcheck">Check myself</button><button class="btn ghost" data-act="close">Cancel</button>');
+}
+function rtCheck(){
+  var pts=rtPoints(),n=rtSel.filter(Boolean).length;
+  openOverlay('<h2>Which did you cover?</h2><p>Tap every main idea you actually said. Be honest, it is only for you.</p><div>'+pts.map(function(x,i){return '<button class="rtp'+(rtSel[i]?' on':'')+'" data-act="rttick" data-i="'+i+'"><i>'+(rtSel[i]?'\u2713':'')+'</i><span><b>'+esc(x.t)+'</b>'+esc(x.p)+'</span></button>';}).join('')+'</div><button class="btn" data-act="rtdone">See my score ('+n+' of '+pts.length+')</button>');
+}
+function rtDone(){
+  var pts=rtPoints(),n=rtSel.filter(Boolean).length,pc=Math.round(100*n/pts.length),r=S.retell[B.id]||{best:0};
+  S.retell[B.id]={best:Math.max(r.best||0,pc),last:pc,at:Date.now()};save();
+  var miss=pts.filter(function(x,i){return !rtSel[i];});
+  openOverlay('<h2>'+pc+'% of the book</h2><p>You covered '+n+' of '+pts.length+' main ideas'+(r.best&&pc<r.best?'. Your best is '+r.best+'%':'')+'.</p>'+(miss.length?'<p><b style="color:var(--text)">You skipped:</b></p><div>'+miss.map(function(x){return '<div class="rtp" style="cursor:default"><i></i><span><b>'+esc(x.t)+'</b>'+esc(x.p)+'</span></div>';}).join('')+'</div>':'<p>Nothing missed. You can talk about this book.</p>')+'<button class="btn" data-act="close">Done</button>');
+  renderMain(true);
+}
 function openShItem(k){
   var x=shItem(k);if(!x)return;
   var b=stoopOf(x),q=encodeURIComponent(x.t+' '+x.a),a='target="_blank" rel="noopener noreferrer"',h='';
-  h+='<span class="chip">'+(x.s==='read'?'Read':'To read')+'</span><h2>'+esc(x.t.split(':')[0])+'</h2><p>'+esc(x.a)+'</p>';
+  h+='<div style="display:flex;gap:14px;align-items:flex-start">'+covEl(x.c,x.t,'M')+'<div><span class="chip">'+(x.s==='read'?'Read':'To read')+'</span><h2 style="margin-top:8px">'+esc(x.t.split(':')[0])+'</h2><p>'+esc(x.a)+'</p></div></div>';
   if(b){
     h+=x.s==='read'?'<button class="btn" data-act="shgo" data-k="'+esc(k)+'">Reinforce in Bookling</button>':'<button class="btn" data-act="shgo" data-k="'+esc(k)+'">Learn in Bookling</button>';
   }else{
@@ -2319,10 +2447,14 @@ document.addEventListener('click',function(e){
     case 'tab':tab=el.dataset.tab;resetArmed=false;renderMain(false);break;
     case 'open':openLesson(el.dataset.id);break;
     case 'notes':tab='book';renderMain(false);break;
+    case 'retell':openRetell();break;
+    case 'rtcheck':rtCheck();break;
+    case 'rttick':rtSel[+el.dataset.i]=!rtSel[+el.dataset.i];rtCheck();break;
+    case 'rtdone':rtDone();break;
     case 'tour':tourI=0;openTour();break;
     case 'tournext':if(tourI<TOUR.length-1){tourI++;openTour();}else{S.seen=1;save();closeOverlay();tab='learn';renderMain(false);}break;
     case 'tourend':S.seen=1;save();closeOverlay();break;
-    case 'shtab':shTab=el.dataset.s;renderMain(false);break;
+    case 'shtab':shTab=el.dataset.s;renderMain(false);ensureCovers();break;
     case 'shitem':openShItem(el.dataset.k);break;
     case 'shadd':openShAdd();var at=document.getElementById('addt');if(at&&shQ)at.value=shQ.trim();break;
     case 'find':openFind();break;
@@ -2360,12 +2492,12 @@ document.addEventListener('click',function(e){
 });
 
 
-setBook(S.book);renderMain(false);
+setBook(S.book);renderMain(false);setTimeout(ensureCovers,1200);
 if(doneCount()>0){var n0=document.querySelector('.node.current');if(n0)n0.scrollIntoView({block:'center'});}
 })();
 </script>
 <script>
-window.BL_VERSION=1794614842;
+window.BL_VERSION=1794629919;
 (function(){
   if(!/^(capacitor|ionic):$/.test(location.protocol))return;
   try{var m=document.getElementById('main');if(m&&m.innerHTML.length>50)localStorage.setItem('bookling-boot','ok');}catch(e){}
