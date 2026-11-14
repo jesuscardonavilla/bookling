@@ -7606,8 +7606,9 @@ function lessonRead(L){var r=S.read[L.bid||B.id];return !!r&&L.chs.some(function
 function qsOf(L,withDeep){var a=L.steps.filter(function(s){return s.t!=='learn';});if(L.deep&&(withDeep||lessonRead(L)))a=a.concat(L.deep);return a;}
 function allQs(){var a=[];LESSONS.forEach(function(L){a=a.concat(qsOf(L));});return a;}
 function dueQs(){var now=Date.now();return allQs().filter(function(q){var e=S.srs[q.qid];return e&&e.d<=now;});}
+function progress(qs){if(!qs.length)return 0;var t=0;qs.forEach(function(q){var e=S.srs[q.qid];if(e)t+=Math.min(3,e.b);});return Math.round(t/(3*qs.length)*100);}
 function mastered(qs){return qs.filter(function(q){var e=S.srs[q.qid];return e&&e.b>=3;}).length;}
-function everyQ(){var a=[];BOOKS.forEach(function(b){b.lessons.forEach(function(L){a=a.concat(qsOf(L));});});return a;}
+function everyQ(){var a=[];BOOKS.forEach(function(b){if(shelfOfBook(b)!=='read')return;b.lessons.forEach(function(L){a=a.concat(qsOf(L));});});return a;}
 function dueAll(){var now=Date.now();return everyQ().filter(function(q){var e=S.srs[q.qid];return e&&e.d<=now;});}
 function reviewPool(){
   var now=Date.now(),qs=everyQ(),by=allById();
@@ -7647,8 +7648,8 @@ function renderMain(keepScroll){
 /* ---------- path ---------- */
 function heroHTML(){
   var n=doneCount()+(bossDone()?1:0),t=LESSONS.length+1,rf=S.mode==='reinforce',al=allQs(),ms=mastered(al);
-  if(rf){n=ms;t=Math.max(1,al.length);}
-  return '<button class="hero" data-act="books" aria-label="Switch book"><div class="mono" aria-hidden="true">'+B.initials+'</div><div style="flex:1;min-width:0"><h1>'+esc(B.author)+'</h1><p>'+esc(B.title)+', '+B.year+'</p><div class="bar"><i style="width:'+Math.round(n/t*100)+'%"></i></div><small>'+(rf?n+' of '+t+' questions solid. Tap to switch book.':tr('{0} of {1} steps. Tap to switch book.',n,t))+'</small></div></button>';
+  if(rf){n=progress(al);t=100;}
+  return '<button class="hero" data-act="books" aria-label="Switch book"><div class="mono" aria-hidden="true">'+B.initials+'</div><div style="flex:1;min-width:0"><h1>'+esc(B.author)+'</h1><p>'+esc(B.title)+', '+B.year+'</p><div class="bar"><i style="width:'+Math.round(n/t*100)+'%"></i></div><small>'+(rf?n+'% reinforced. Tap to switch book.':tr('{0} of {1} steps. Tap to switch book.',n,t))+'</small></div></button>';
 }
 function nodeHTML(L,x,cur){
   var st=stateOf(L.id);
@@ -7663,19 +7664,18 @@ function modeBar(){
 }
 function reinforceHTML(){
   var h=heroHTML()+modeBar(),due=dueAll().length,all=allQs(),m=mastered(all);
-  h+='<div class="rcard"><span class="eyebrow">Daily review</span><h2>'+(due?due+(due===1?' question due':' questions due'):'Nothing due right now')+'</h2><p>'+(due?'Spaced repetition brings back what you are about to forget, from all your books.':'You can still practice. Questions from chapters you marked as read come first.')+'</p><div class="bar"><i style="width:'+Math.round(m/Math.max(1,all.length)*100)+'%"></i></div><small>'+m+' of '+all.length+' questions solid</small><button class="btn" data-act="start" data-id="review">'+(due?'Start review':'Practice anyway')+'</button></div>';
+  h+='<div class="rcard"><span class="eyebrow">Daily review</span><h2>'+(due?due+(due===1?' question due':' questions due'):'Nothing due right now')+'</h2><p>'+(due?'Spaced repetition brings back what you are about to forget, from all your books.':'You can still practice. Questions from chapters you marked as read come first.')+'</p><div class="bar"><i style="width:'+progress(all)+'%"></i></div><small>'+progress(all)+'% reinforced, '+m+' of '+all.length+' questions solid</small><button class="btn" data-act="start" data-id="review">'+(due?'Start review':'Practice anyway')+'</button></div>';
   h+='<div class="sec">By lesson</div>';
   LESSONS.forEach(function(L){
     var qs=qsOf(L),mm=mastered(qs),hasDeep=L.deep&&L.deep.length,on=lessonRead(L);
-    h+='<button class="lcard" data-act="start" data-id="'+L.id+'"><div class="li">'+ic(L.icon,22)+'</div><div style="flex:1;min-width:0"><b>'+esc(L.title)+'</b><span>'+L.ch+', '+qs.length+' questions'+(hasDeep&&on?', deep unlocked':'')+'</span><div class="bar"><i style="width:'+Math.round(mm/Math.max(1,qs.length)*100)+'%"></i></div>'+(hasDeep&&!on?'<em>Mark these chapters as read to unlock '+L.deep.length+' deep questions</em>':'')+'</div></button>';
+    h+='<button class="lcard" data-act="start" data-id="'+L.id+'"><div class="li">'+ic(L.icon,22)+'</div><div style="flex:1;min-width:0"><b>'+esc(L.title)+'</b><span>'+L.ch+', '+qs.length+' questions'+(hasDeep&&on?', deep unlocked':'')+'</span><div class="bar"><i style="width:'+progress(qs)+'%"></i></div>'+(hasDeep&&!on?'<em>Mark these chapters as read to unlock '+L.deep.length+' deep questions</em>':'')+'</div></button>';
   });
   h+='<button class="lcard" data-act="start" data-id="boss"><div class="li">'+ic('star',22)+'</div><div style="flex:1;min-width:0"><b>Book check</b><span>Eight mixed questions from the whole book</span></div></button>';
   return h;
 }
 function pathHTML(){
   if(S.mode==='reinforce')return reinforceHTML();
-  var offs=[0,48,72,48,0,-48,-72,-48],n=0,h=heroHTML()+modeBar(),cur=currentId(),dn=dueAll().length;
-  if(dn)h+='<div class="rcard"><span class="eyebrow">Daily review</span><h2>'+dn+(dn===1?' question due':' questions due')+'</h2><p>From all your books.</p><button class="btn" data-act="start" data-id="review">Start review</button></div>';
+  var offs=[0,48,72,48,0,-48,-72,-48],n=0,h=heroHTML()+modeBar(),cur=currentId();
   UNITS.forEach(function(u){
     h+='<section class="unit"><div class="sign"><small>'+tr('Unit')+' '+u.no+'</small><h2>'+u.title+'</h2><p>'+u.sub+'</p></div><div class="trail">';
     u.lessons.forEach(function(id){h+=nodeHTML(BYID[id],offs[n++%8],cur);});
@@ -8114,7 +8114,7 @@ if(doneCount()>0){var n0=document.querySelector('.node.current');if(n0)n0.scroll
 })();
 </script>
 <script>
-window.BL_VERSION=1794670608;
+window.BL_VERSION=1794678910;
 (function(){
   if(!/^(capacitor|ionic):$/.test(location.protocol))return;
   try{var m=document.getElementById('main');if(m&&m.innerHTML.length>50)localStorage.setItem('bookling-boot','ok');}catch(e){}
