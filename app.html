@@ -7562,7 +7562,7 @@ var SEED=[
 var KEY='stoop-v1';
 function load(){try{return JSON.parse(localStorage.getItem(KEY));}catch(e){return null;}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
-BOOKS.forEach(function(b){b.lessons.forEach(function(L){L.steps.forEach(function(s,i){s.qid=L.id+'.'+i;s.lid=L.id;});(L.deep||[]).forEach(function(s,i){s.qid=L.id+'.d'+i;s.lid=L.id;s.deep=true;});});});
+BOOKS.forEach(function(b){b.lessons.forEach(function(L){L.bid=b.id;L.steps.forEach(function(s,i){s.qid=L.id+'.'+i;s.lid=L.id;});(L.deep||[]).forEach(function(s,i){s.qid=L.id+'.d'+i;s.lid=L.id;s.deep=true;});});});
 function fresh(){return {xp:0,streak:0,last:null,done:{},boss:{},book:'jacobs',att:0,ok:0,perfect:0,read:{},srs:{},mode:'learn'};}
 var S=Object.assign(fresh(),load()||{});
 if(!Array.isArray(S.shelf))S.shelf=SEED.map(function(x,i){return {k:'s'+i,t:x[0],a:x[1],s:x[2]};});
@@ -7600,19 +7600,27 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 /* ---------- reading + review helpers ---------- */
 var DAYS=[0,1,3,7,14,30];
 function srsUpdate(q,ok){var e=S.srs[q]||{b:0,d:0};e.b=ok?Math.min(5,e.b+1):0;e.d=Date.now()+DAYS[e.b]*864e5;S.srs[q]=e;}
+var ALLBYID=null;function allById(){if(!ALLBYID){ALLBYID={};BOOKS.forEach(function(b){b.lessons.forEach(function(L){ALLBYID[L.id]=L;});});}return ALLBYID;}
 function isRead(n){return !!(S.read[B.id]&&S.read[B.id][n]);}
-function lessonRead(L){return L.chs.some(isRead);}
+function lessonRead(L){var r=S.read[L.bid||B.id];return !!r&&L.chs.some(function(n){return !!r[n];});}
 function qsOf(L,withDeep){var a=L.steps.filter(function(s){return s.t!=='learn';});if(L.deep&&(withDeep||lessonRead(L)))a=a.concat(L.deep);return a;}
 function allQs(){var a=[];LESSONS.forEach(function(L){a=a.concat(qsOf(L));});return a;}
 function dueQs(){var now=Date.now();return allQs().filter(function(q){var e=S.srs[q.qid];return e&&e.d<=now;});}
 function mastered(qs){return qs.filter(function(q){var e=S.srs[q.qid];return e&&e.b>=3;}).length;}
+function everyQ(){var a=[];BOOKS.forEach(function(b){b.lessons.forEach(function(L){a=a.concat(qsOf(L));});});return a;}
+function dueAll(){var now=Date.now();return everyQ().filter(function(q){var e=S.srs[q.qid];return e&&e.d<=now;});}
 function reviewPool(){
-  var now=Date.now(),qs=allQs();
+  var now=Date.now(),qs=everyQ(),by=allById();
   var due=qs.filter(function(q){var e=S.srs[q.qid];return e&&e.d<=now;}).sort(function(a,b){return S.srs[a.qid].d-S.srs[b.qid].d;});
+  var rd={};BOOKS.forEach(function(b){if(shelfOfBook(b)==='read')rd[b.id]=1;});
   var fresh=qs.filter(function(q){return !S.srs[q.qid];});
-  var rf=shuffle(fresh.filter(function(q){return lessonRead(BYID[q.lid]);})),of=shuffle(fresh.filter(function(q){return !lessonRead(BYID[q.lid]);}));
+  var rf=shuffle(fresh.filter(function(q){var L=by[q.lid];return rd[L.bid]&&(L.bid===B.id||lessonRead(L));})),of=shuffle(fresh.filter(function(q){var L=by[q.lid];return L.bid===B.id&&!lessonRead(L);}));
   var seen=shuffle(qs.filter(function(q){var e=S.srs[q.qid];return e&&e.d>now;}));
-  return due.concat(rf,of,seen).slice(0,8);
+  var out=due.slice(0,8);
+  if(out.length<8)out=out.concat(rf).slice(0,8);
+  if(out.length<8)out=out.concat(of).slice(0,8);
+  if(out.length<8)out=out.concat(seen).slice(0,8);
+  return out;
 }
 function chapterCount(){var n=0;CHAPTERS.forEach(function(p){n+=p.items.length;});return n;}
 function readCount(){var n=0;CHAPTERS.forEach(function(p){p.items.forEach(function(c){if(isRead(c[0]))n++;});});return n;}
@@ -7654,8 +7662,8 @@ function modeBar(){
   return '<div class="capr" style="margin-top:18px"><p class="cap"><b style="color:var(--text)">'+(r?'Reinforce':'Learn')+'</b>. '+(r?'It is on your Read shelf, so you are reviewing what you already know.':sh==='to-read'?'It is on your To read shelf, so you are learning it from the start.':'Add it to your shelf to choose Learn or Reinforce.')+'</p><div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end"><button class="linkbtn" data-act="readsheet">Read the real book</button><button class="linkbtn" data-act="notes">Notes</button><button class="linkbtn" data-act="retell">Retell it'+((S.retell&&S.retell[B.id])?' ('+S.retell[B.id].best+'%)':'')+'</button></div></div>';
 }
 function reinforceHTML(){
-  var h=heroHTML()+modeBar(),due=dueQs().length,all=allQs(),m=mastered(all);
-  h+='<div class="rcard"><span class="eyebrow">Daily review</span><h2>'+(due?due+(due===1?' question due':' questions due'):'Nothing due right now')+'</h2><p>'+(due?'Spaced repetition brings back what you are about to forget.':'You can still practice. Questions from chapters you marked as read come first.')+'</p><div class="bar"><i style="width:'+Math.round(m/Math.max(1,all.length)*100)+'%"></i></div><small>'+m+' of '+all.length+' questions solid</small><button class="btn" data-act="start" data-id="review">'+(due?'Start review':'Practice anyway')+'</button></div>';
+  var h=heroHTML()+modeBar(),due=dueAll().length,all=allQs(),m=mastered(all);
+  h+='<div class="rcard"><span class="eyebrow">Daily review</span><h2>'+(due?due+(due===1?' question due':' questions due'):'Nothing due right now')+'</h2><p>'+(due?'Spaced repetition brings back what you are about to forget, from all your books.':'You can still practice. Questions from chapters you marked as read come first.')+'</p><div class="bar"><i style="width:'+Math.round(m/Math.max(1,all.length)*100)+'%"></i></div><small>'+m+' of '+all.length+' questions solid</small><button class="btn" data-act="start" data-id="review">'+(due?'Start review':'Practice anyway')+'</button></div>';
   h+='<div class="sec">By lesson</div>';
   LESSONS.forEach(function(L){
     var qs=qsOf(L),mm=mastered(qs),hasDeep=L.deep&&L.deep.length,on=lessonRead(L);
@@ -7666,7 +7674,8 @@ function reinforceHTML(){
 }
 function pathHTML(){
   if(S.mode==='reinforce')return reinforceHTML();
-  var offs=[0,48,72,48,0,-48,-72,-48],n=0,h=heroHTML()+modeBar(),cur=currentId();
+  var offs=[0,48,72,48,0,-48,-72,-48],n=0,h=heroHTML()+modeBar(),cur=currentId(),dn=dueAll().length;
+  if(dn)h+='<div class="rcard"><span class="eyebrow">Daily review</span><h2>'+dn+(dn===1?' question due':' questions due')+'</h2><p>From all your books.</p><button class="btn" data-act="start" data-id="review">Start review</button></div>';
   UNITS.forEach(function(u){
     h+='<section class="unit"><div class="sign"><small>'+tr('Unit')+' '+u.no+'</small><h2>'+u.title+'</h2><p>'+u.sub+'</p></div><div class="trail">';
     u.lessons.forEach(function(id){h+=nodeHTML(BYID[id],offs[n++%8],cur);});
@@ -7938,7 +7947,7 @@ function topBar(){
   return '<div class="lt"><button class="icb" data-act="quit" aria-label="Quit lesson">'+ic('x',26)+'</button><div class="bar" role="progressbar" aria-valuenow="'+pct+'" aria-valuemin="0" aria-valuemax="100"><i style="width:'+pct+'%"></i></div>'+((run.reinforce||run.review)?'<div style="width:22px"></div>':'<div class="hearts" aria-label="'+run.hearts+' hearts left">'+ic('heart',22,true)+'<span>'+run.hearts+'</span></div>')+'</div>';
 }
 function elabHTML(it){
-  var L=it.lid&&BYID[it.lid],t=L&&L.note&&L.note.line;
+  var L=it.lid&&allById()[it.lid],t=L&&L.note&&L.note.line;
   if(!t||t===it.why)return '';
   return '<p class="el"><b>'+tr('In the book:')+'</b> '+esc(t)+'</p>';
 }
@@ -8105,7 +8114,7 @@ if(doneCount()>0){var n0=document.querySelector('.node.current');if(n0)n0.scroll
 })();
 </script>
 <script>
-window.BL_VERSION=1794669869;
+window.BL_VERSION=1794670608;
 (function(){
   if(!/^(capacitor|ionic):$/.test(location.protocol))return;
   try{var m=document.getElementById('main');if(m&&m.innerHTML.length>50)localStorage.setItem('bookling-boot','ok');}catch(e){}
