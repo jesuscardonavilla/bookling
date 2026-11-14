@@ -130,6 +130,7 @@ h1,h2,h3{text-wrap:balance;font-weight:600;letter-spacing:-.02em}
 .fb p{font-size:15px}
 .fb.right p{color:var(--good-text)} .fb.wrong p{color:var(--bad-text)}
 .fb .fa b{font-weight:700}
+.fb .el{font-size:14px;opacity:.85;margin-top:2px}.fb .el b{font-weight:700}
 .fb .btn{margin-top:6px}
 
 .learn{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:24px 22px;display:flex;flex-direction:column;gap:14px}
@@ -6554,12 +6555,17 @@ function topBar(){
   var pct=Math.round(run.done/run.total*100);
   return '<div class="lt"><button class="icb" data-act="quit" aria-label="Quit lesson">'+ic('x',26)+'</button><div class="bar" role="progressbar" aria-valuenow="'+pct+'" aria-valuemin="0" aria-valuemax="100"><i style="width:'+pct+'%"></i></div>'+((run.reinforce||run.review)?'<div style="width:22px"></div>':'<div class="hearts" aria-label="'+run.hearts+' hearts left">'+ic('heart',22,true)+'<span>'+run.hearts+'</span></div>')+'</div>';
 }
+function elabHTML(it){
+  var L=it.lid&&BYID[it.lid],t=L&&L.note&&L.note.line;
+  if(!t||t===it.why)return '';
+  return '<p class="el"><b>'+tr('In the book:')+'</b> '+esc(t)+'</p>';
+}
 function fbHTML(ok,it){
   var msg=ok?tr(['Nice!','Exactly.','You got it.','Correct.'][Math.floor(Math.random()*4)]):tr('Not quite.');
   var ans='';
   if(!ok&&it.t==='mcq')ans='<p class="fa"><b>'+tr('Answer:')+'</b> '+esc(it.c)+'</p>';
   if(!ok&&it.t==='tf')ans='<p class="fa"><b>'+tr('Answer:')+'</b> '+tr(it.a?'True':'False')+'</p>';
-  return '<div class="fb '+(ok?'right':'wrong')+'"><div class="fh">'+ic(ok?'check':'x',26)+'<h3>'+msg+'</h3></div>'+ans+'<p>'+esc(it.why)+'</p><button class="btn '+(ok?'good':'bad')+'" data-act="next">'+tr('Continue')+'</button></div>';
+  return '<div class="fb '+(ok?'right':'wrong')+'"><div class="fh">'+ic(ok?'check':'x',26)+'<h3>'+msg+'</h3></div>'+ans+'<p>'+esc(it.why)+'</p>'+elabHTML(it)+'<button class="btn '+(ok?'good':'bad')+'" data-act="next">'+tr('Continue')+'</button></div>';
 }
 function renderLesson(){
   if(!run)return;
@@ -6717,7 +6723,7 @@ if(doneCount()>0){var n0=document.querySelector('.node.current');if(n0)n0.scroll
 })();
 </script>
 <script>
-window.BL_VERSION=1794665933;
+window.BL_VERSION=1794666817;
 (function(){
   if(!/^(capacitor|ionic):$/.test(location.protocol))return;
   try{var m=document.getElementById('main');if(m&&m.innerHTML.length>50)localStorage.setItem('bookling-boot','ok');}catch(e){}
