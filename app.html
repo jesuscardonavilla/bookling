@@ -7608,7 +7608,7 @@ function allQs(){var a=[];LESSONS.forEach(function(L){a=a.concat(qsOf(L));});ret
 function dueQs(){var now=Date.now();return allQs().filter(function(q){var e=S.srs[q.qid];return e&&e.d<=now;});}
 function progress(qs){if(!qs.length)return 0;var t=0;qs.forEach(function(q){var e=S.srs[q.qid];if(e)t+=Math.min(3,e.b);});return Math.round(t/(3*qs.length)*100);}
 function mastered(qs){return qs.filter(function(q){var e=S.srs[q.qid];return e&&e.b>=3;}).length;}
-function everyQ(){var a=[];BOOKS.forEach(function(b){if(shelfOfBook(b)!=='read')return;b.lessons.forEach(function(L){a=a.concat(qsOf(L));});});return a;}
+function everyQ(){return allQs();}
 function dueAll(){var now=Date.now();return everyQ().filter(function(q){var e=S.srs[q.qid];return e&&e.d<=now;});}
 function reviewPool(){
   var now=Date.now(),qs=everyQ(),by=allById();
@@ -7664,7 +7664,7 @@ function modeBar(){
 }
 function reinforceHTML(){
   var h=heroHTML()+modeBar(),due=dueAll().length,all=allQs(),m=mastered(all);
-  h+='<div class="rcard"><span class="eyebrow">Daily review</span><h2>'+(due?due+(due===1?' question due':' questions due'):'Nothing due right now')+'</h2><p>'+(due?'Spaced repetition brings back what you are about to forget, from all your books.':'You can still practice. Questions from chapters you marked as read come first.')+'</p><div class="bar"><i style="width:'+progress(all)+'%"></i></div><small>'+progress(all)+'% reinforced, '+m+' of '+all.length+' questions solid</small><button class="btn" data-act="start" data-id="review">'+(due?'Start review':'Practice anyway')+'</button></div>';
+  h+='<div class="rcard"><span class="eyebrow">Daily review</span><h2>'+(due?due+(due===1?' question due':' questions due'):'Nothing due right now')+'</h2><p>'+(due?'Spaced repetition brings back what you are about to forget, from this book.':'You can still practice. Questions from chapters you marked as read come first.')+'</p><div class="bar"><i style="width:'+progress(all)+'%"></i></div><small>'+progress(all)+'% reinforced, '+m+' of '+all.length+' questions solid</small><button class="btn" data-act="start" data-id="review">'+(due?'Start review':'Practice anyway')+'</button></div>';
   h+='<div class="sec">By lesson</div>';
   LESSONS.forEach(function(L){
     var qs=qsOf(L),mm=mastered(qs),hasDeep=L.deep&&L.deep.length,on=lessonRead(L);
@@ -8114,7 +8114,7 @@ if(doneCount()>0){var n0=document.querySelector('.node.current');if(n0)n0.scroll
 })();
 </script>
 <script>
-window.BL_VERSION=1794678910;
+window.BL_VERSION=1794679005;
 (function(){
   if(!/^(capacitor|ionic):$/.test(location.protocol))return;
   try{var m=document.getElementById('main');if(m&&m.innerHTML.length>50)localStorage.setItem('bookling-boot','ok');}catch(e){}
