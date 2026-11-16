@@ -7742,6 +7742,7 @@ function reinforceHTML(){
 function pathHTML(){
   if(S.mode==='reinforce')return reinforceHTML();
   var offs=[0,48,72,48,0,-48,-72,-48],n=0,h=heroHTML()+modeBar(),cur=currentId();
+  h+='<div class="rcard"><span class="eyebrow">In short</span><h2 style="font-size:20px">'+esc(B.question)+'</h2><p>'+esc(B.answer)+'</p><small>'+esc(B.coverage)+'</small></div>';
   UNITS.forEach(function(u){
     h+='<section class="unit"><div class="sign"><small>'+tr('Unit')+' '+u.no+'</small><h2>'+u.title+'</h2><p>'+u.sub+'</p></div><div class="trail">';
     u.lessons.forEach(function(id){h+=nodeHTML(BYID[id],offs[n++%8],cur);});
@@ -8188,7 +8189,7 @@ if(doneCount()>0){var n0=document.querySelector('.node.current');if(n0)n0.scroll
 })();
 </script>
 <script>
-window.BL_VERSION=1794851453;
+window.BL_VERSION=1794851725;
 (function(){
   if(!/^(capacitor|ionic):$/.test(location.protocol))return;
   try{var m=document.getElementById('main');if(m&&m.innerHTML.length>50)localStorage.setItem('bookling-boot','ok');}catch(e){}
