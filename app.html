@@ -697,7 +697,7 @@ function MK(o){
   return {id:o.id,author:o.a,initials:(w[0][0]+(w.length>1?w[w.length-1][0]:'')).toUpperCase(),title:o.t,year:yr,chip:o.a+', '+yr,
     question:o.q,answer:o.ans,lessons:L,
     boss:{id:'boss',icon:'star',title:'Book check',ch:'Whole book',desc:'Eight mixed questions from every lesson. Pass it and you can say you know the book.'},
-    units:units,chapters:[{part:null,items:items}],next:[],
+    cast:[],units:units,chapters:[{part:null,items:items}],next:[],
     coverage:o.cov||'Lessons follow the order of the book. The real book has the full argument, the examples and the author\'s voice.',
     bossMsg:'You can hold your own in a conversation about '+o.t+'.'};
 }
@@ -2691,6 +2691,135 @@ M("How do the boys end the day?","Cheering for Karamazov, hand in hand",["Arguin
 T("Alyosha tells the boys to forget Ilusha quickly.",false,"He asks them to remember him.")),
 ]]
 ]}));
+/* hooks, cast for The Brothers Karamazov */
+(function(){
+var b=MORE.filter(function(x){return x.id==='dostoevsky_bk';})[0];if(!b)return;
+var H=[
+"Before page one, one family name hides a murder. Who is Fyodor Karamazov?",
+"A buffoon, a miser, a lecher. What does he do with his first son?",
+"Dmitri is passed from hand to hand. And what about the second wife and the second family?",
+"Two marriages, two families, and a house where nobody is safe. Who is the third son?",
+"Alyosha is the quiet one. Why does he leave for a monastery, and who is the holy man he follows?",
+"Everyone queues to see the elder. What happens when the whole Karamazov family arrives?",
+"Fyodor steps into a saint's cell. How far will the old buffoon push it?",
+"The elder leaves the rich to meet the poor. What do the peasant women ask him for?",
+"A wealthy lady has no faith. What does the elder tell her?",
+"An argument about the Church and the state turns tense. What does Ivan believe?",
+"A son shouts a terrible question about his father. Who says it?",
+"A young seminarian is bent on a career. What does he want from Alyosha?",
+"The meeting ends in shame. What is the scandalous scene?",
+"Night in the Karamazov house. Something groans in the garden. Who is it?",
+"A mute holy fool wanders the town. Who was Lizaveta, and who fathered her child?",
+"Dmitri hides in a garden and starts a confession in verse. What is he hiding?",
+"Next comes the confession in anecdote. Who is the proud woman he owes a debt of honor?",
+"Three thousand roubles, a spree and a bag sewn shut. What did Dmitri really do?",
+"The cook has cold eyes and a quiet mind. Who is Smerdyakov?",
+"A servant argues against martyrdom. Who slaps him?",
+"Fyodor pours brandy and asks Ivan about God. What does Ivan say?",
+"Dmitri bursts in with fists. What happens to Fyodor and Grigory?",
+"Two women who hate each other share one room. Who comes out humiliated?",
+"Dmitri waits at a crossroads in the dark. What does he tell Alyosha?",
+"A harsh monk circles the dying elder. Who is Ferapont?",
+"Alyosha visits his father. Why does Fyodor ask him to come back?",
+"A boy bites Alyosha's finger. Why?",
+"Katerina makes a vow in a drawing-room. Who ends up hurt?",
+"Alyosha goes to a poor cottage. What is hidden under the coat?",
+"A captain is offered two hundred roubles. What does he do?",
+"Lise has a secret to confess. What does she want from Alyosha?",
+"Alyosha overhears a servant sing and sneer. What does Smerdyakov want for Russia?",
+"Ivan calls him up from a tavern window. What is he about to confess?",
+"Ivan says he can't love his neighbor. What is his case against God's world?",
+"Christ returns to Seville. Who arrests him?",
+"The old Inquisitor lists three temptations. What are they?",
+"The old man finishes. What does the prisoner do?",
+"Alyosha has an answer for Ivan. What is it?",
+"Ivan walks home, and a servant waits at the gate. What does he suggest?",
+"Ivan makes a decision about the house. What does he decide?",
+"Zosima's last story starts with a dying brother. What changes him?",
+"A young officer strikes a servant, and the next day there is a duel. What does he do with his pistol?",
+"A respected man tells Zosima a dark secret. What is it?",
+"The elder gives his last teaching. What does he want us to know about love?",
+"Zosima has only hours left. What do his last words say about hell?",
+"The monks wait for a miracle. What actually happens to his body?",
+"Alyosha walks out of the hermitage. Who finds him lying on the ground?",
+"Rakitin takes him to Grushenka, expecting a fall. What does she tell him?",
+"Alyosha prays over the body and sees a wedding. What does he decide next?",
+"Dmitri needs three thousand by tomorrow. Who will he ask?",
+"A drunk, a hot room and a missed deal. What does Dmitri do next?",
+"Madame Hohlakov has an idea about gold. Will she give him money?",
+"Dmitri runs through the garden toward the lit window. What does he see?",
+"There is blood on his hands. What does he do next?",
+"He races across the plain in a troika. Who is waiting at the end?",
+"He steps into the inn. Who is sitting with Grushenka?",
+"A wild night of wine and song, and then at dawn a knock. Who is it?",
+"A clerk follows a trail of blood. Where does it lead?",
+"A servant is wounded and the master is dead. Who finds them?",
+"The investigators set up at Mokroye. What do they ask first?",
+"Where did the money go? What does Mitya refuse to say?",
+"Mitya must strip for a search. What do they find?",
+"They catch him on the money. How does he react?",
+"Mitya tells his great secret. Does anyone believe him?",
+"A dream of a starving child. How does Mitya feel when he wakes?",
+"A cart takes him away. What does Grushenka say?",
+"A new boy appears who once lay under a train. Who is Kolya?",
+"Kolya looks after the little ones. What do they ask him?",
+"He goes out into the cold with a plan. Who does he send for?",
+"A dog goes missing. Why does Kolya know where it is?",
+"A sick boy, a crowd and a trained dog. Does Ilusha recognize it?",
+"The doctor is in the next room. What does Kolya tell Alyosha?",
+"The doctor gives his verdict. What does he say?",
+"Alyosha goes to Grushenka's house. How is she holding up?",
+"Madame Hohlakov has a plan to save Mitya. Is it any good?",
+"Lise says something dark. Why does she shut the door on her finger?",
+"Mitya sings from underground. What secret does he share?",
+"Ivan walks to Smerdyakov's house. What will he hear?",
+"Smerdyakov hints at something. What did Ivan guess?",
+"Ivan comes back for more. What does Smerdyakov say about his leaving?",
+"The servant is ready to speak. What does he finally admit?",
+"A stranger sits on Ivan's sofa. Who is he?",
+"A knock at the window. Who is it, and what news?",
+"The trial begins. What is on the table?",
+"Grigory takes the stand. What does he swear about the door?",
+"Doctors argue. A pound of nuts comes up. Who speaks next?",
+"Katerina speaks of Mitya's honor. Will it last?",
+"Ivan stands up in court. What does he bring?",
+"The prosecutor starts his speech. How does he describe the family?",
+"A letter is read aloud. What is it called?",
+"Why couldn't Smerdyakov have done it? The prosecutor explains.",
+"The prosecutor ends with a galloping troika. What does the defense answer?",
+"The defense attacks psychology. What does he say about the money?",
+"No money, no robbery. What about the murder?",
+"Was there a murder at all? What does the defense say?",
+"A father is more than a begetter. What is the jury asked to do?",
+"The jury retires. What do the peasants decide?",
+"A verdict is in. Who visits Mitya?",
+"Katerina and Grushenka come face to face again. Will anyone forgive?",
+"Ilusha is buried. What does Alyosha tell the boys?",
+"The end. Which Karamazov do you understand best?"
+];
+b.lessons.forEach(function(L,i){L.note.hook=H[i]||'';});
+var C=[
+["Fyodor Pavlovitch","The father","A greedy, lecherous buffoon, father of the three sons.",2],
+["Dmitri (Mitya)","The eldest","Passionate, impulsive and honorable in his way, ruled by love and debt.",3],
+["Ivan","The thinker","Cold, brilliant, haunted by God and suffering.",4],
+["Alyosha","The youngest","A gentle novice who loves everyone and stays with his brothers.",5],
+["Father Zosima","The elder","A holy man who teaches love and responsibility for all.",6],
+["Rakitin","The seminarian","A cynic who wants to see the righteous fall.",13],
+["Grigory","The servant","Stern, devout and loyal servant of the Karamazovs.",15],
+["Smerdyakov","The cook","Fyodor's servant and probable son, cold and secretive.",16],
+["Katerina Ivanovna","The proud fiancée","Proud, torn between duty, gratitude and love.",18],
+["Grushenka","The rival","A warm, wild woman who both Fyodor and Dmitri want.",24],
+["Father Ferapont","The hardliner","A harsh ascetic who opposes Zosima's gentleness.",26],
+["Lise Hohlakov","The little demon","A teasing, troubled girl who loves Alyosha.",28],
+["Captain Snegiryov","The proud poor man","A shamed father who values honor above money.",30],
+["Ilusha","The sick boy","A schoolboy dying of illness, who loves his father.",28],
+["Perhotin","The clerk","A young official who starts the investigation.",59],
+["Kolya Krassotkin","The proud boy","A clever, bossy thirteen-year-old with a kind heart.",68],
+["Ippolit Kirillovitch","The prosecutor","The ambitious accuser at the trial.",61],
+["Fetyukovitch","The defender","A famous lawyer from Petersburg.",85]
+];
+b.cast=C.map(function(c){return {n:c[0],role:c[1],line:c[2],lesson:b.lessons[c[3]-1].id};});
+})();
 MORE.push(MK({id:"effortless",t:"Effortless",a:"Greg McKeown",y:2021,
 q:"how can the essential things in life and work become easier, not harder?",
 ans:"McKeown, author of Essentialism, argues that once you know what matters, the next question is how to make it easy. The book has three parts of five chapters each: Effortless State (be rested, light and clear), Effortless Action (do essential work with less strain) and Effortless Results (get returns that keep paying off). The core move is to ask what if this could be easy.",
@@ -8573,8 +8702,11 @@ function pathHTML(){
   if(S.mode==='reinforce')return reinforceHTML();
   var offs=[0,48,72,48,0,-48,-72,-48],n=0,h=heroHTML()+modeBar(),cur=currentId();
   h+='<div class="rcard"><span class="eyebrow">In short</span><h2 style="font-size:20px">'+esc(B.question)+'</h2><p>'+esc(B.answer)+'</p><small>'+esc(B.coverage)+'</small></div>';
+  if(B.cast&&B.cast.length){var cn=B.cast.filter(function(c){return S.done[c.lesson];}).length;
+    h+='<div class="rcard"><span class="eyebrow">Cast '+cn+' of '+B.cast.length+'</span><div>'+B.cast.map(function(c){var u=S.done[c.lesson];return '<p style="margin:8px 0;opacity:'+(u?1:.4)+'"><b>'+(u?esc(c.n):'???')+'</b>'+(u?' <small>'+esc(c.role)+'</small><br>'+esc(c.line):' <small>Keep going to meet them</small>')+'</p>';}).join('')+'</div></div>';}
   UNITS.forEach(function(u){
-    h+='<section class="unit"><div class="sign"><small>'+tr('Unit')+' '+u.no+'</small><h2>'+u.title+'</h2><p>'+u.sub+'</p></div><div class="trail">';
+    var ud=u.lessons.every(function(x){return S.done[x];});
+    h+='<section class="unit"><div class="sign"><small>'+tr('Unit')+' '+u.no+(ud?' · Badge earned':'')+'</small><h2>'+u.title+'</h2><p>'+u.sub+'</p></div><div class="trail">';
     u.lessons.forEach(function(id){h+=nodeHTML(BYID[id],offs[n++%8],cur);});
     h+='</div></section>';
   });
@@ -8944,9 +9076,18 @@ function complete(){
   save();
   var title=run.review?'Review complete':run.isBoss?tr('You know this book'):tr('Lesson complete');
   var say=(!run.isBoss&&!run.review&&pass&&BYID[run.id]&&BYID[run.id].note.say)||'';
+  var extra='';
+  if(!run.isBoss&&!run.review&&pass&&BYID[run.id]){
+    var nc=(B.cast||[]).filter(function(c){return c.lesson===run.id;});
+    nc.forEach(function(c){extra+='<div class="say"><span class="eyebrow">New character</span><p><b>'+esc(c.n)+'</b>, '+esc(c.role)+'. '+esc(c.line)+'</p></div>';});
+    var un=UNITS.filter(function(u){return u.lessons.indexOf(run.id)>=0;})[0];
+    if(un&&un.lessons.every(function(x){return S.done[x];}))extra+='<div class="say"><span class="eyebrow">Badge earned</span><p><b>'+esc(un.title)+'</b> complete.</p></div>';
+    var hk=BYID[run.id].note.hook;
+    if(hk)extra+='<div class="say"><span class="eyebrow">Next up</span><p>'+esc(hk)+'</p></div>';
+  }
   document.getElementById('lesson').innerHTML='<div class="lw"><div class="center"><div class="bigb">'+ic(run.isBoss?'star':'check',56,run.isBoss)+'</div><h1>'+title+'</h1>'+(sub?'<p>'+esc(sub)+'</p>':'')+
    '<div class="res"><div><span>'+tr('XP')+'</span><b>+'+xp+'</b></div><div><span>'+tr('Accuracy')+'</span><b>'+acc+'%</b></div><div><span>'+tr('Streak')+'</span><b>'+S.streak+'</b></div></div>'+
-   (say?'<div class="say"><span class="eyebrow">Say it like this</span><p>'+esc(say)+'</p></div>':'')+'</div>'+
+   (say?'<div class="say"><span class="eyebrow">Say it like this</span><p>'+esc(say)+'</p></div>':'')+extra+'</div>'+
    '<div class="lf"><button class="btn" data-act="leave">'+tr('Continue')+'</button>'+(run.review?'':'<button class="btn ghost" style="margin-top:10px" data-act="readfrom">Read this in the real book</button>')+'</div></div>';
   confetti();
 }
@@ -9019,7 +9160,7 @@ if(doneCount()>0){var n0=document.querySelector('.node.current');if(n0)n0.scroll
 })();
 </script>
 <script>
-window.BL_VERSION=1795197436;
+window.BL_VERSION=1795199474;
 (function(){
   if(!/^(capacitor|ionic):$/.test(location.protocol))return;
   try{var m=document.getElementById('main');if(m&&m.innerHTML.length>50)localStorage.setItem('bookling-boot','ok');}catch(e){}
